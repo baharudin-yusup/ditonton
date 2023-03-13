@@ -1,27 +1,21 @@
+import 'package:ditonton/domain/entities/watchlist.dart';
 import 'package:equatable/equatable.dart';
 
 class Movie extends Equatable {
   Movie({
-    required this.adult,
-    required this.backdropPath,
-    required this.genreIds,
+    this.adult,
+    this.backdropPath,
+    this.genreIds,
     required this.id,
-    required this.originalTitle,
+    this.originalTitle,
     required this.overview,
-    required this.popularity,
+    this.popularity,
     required this.posterPath,
-    required this.releaseDate,
+    this.releaseDate,
     required this.title,
-    required this.video,
-    required this.voteAverage,
-    required this.voteCount,
-  });
-
-  Movie.watchlist({
-    required this.id,
-    required this.overview,
-    required this.posterPath,
-    required this.title,
+    this.video,
+    this.voteAverage,
+    this.voteCount,
   });
 
   bool? adult;
@@ -29,14 +23,24 @@ class Movie extends Equatable {
   List<int>? genreIds;
   int id;
   String? originalTitle;
-  String? overview;
+  String overview;
   double? popularity;
   String? posterPath;
   String? releaseDate;
-  String? title;
+  String title;
   bool? video;
   double? voteAverage;
   int? voteCount;
+
+  Watchlist toWatchlist() {
+    return Watchlist(
+      id: id,
+      overview: overview,
+      posterPath: posterPath!,
+      name: title,
+      type: WatchlistType.movie,
+    );
+  }
 
   @override
   List<Object?> get props => [

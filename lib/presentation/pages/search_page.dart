@@ -1,67 +1,98 @@
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/presentation/provider/movie_search_notifier.dart';
-import 'package:ditonton/presentation/widgets/movie_card_list.dart';
+import 'package:ditonton/injection.dart';
+import 'package:ditonton/presentation/provider/search_entertainment_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SearchPage extends StatelessWidget {
-  static const ROUTE_NAME = '/search';
+import '../widgets/base/entertainment_card/entertainment_card.dart';
+
+class SearchPage<Notifier extends SearchEntertainmentNotifier>
+    extends StatelessWidget {
+  static Route route<Notifier extends SearchEntertainmentNotifier>() {
+    return MaterialPageRoute(builder: (_) => SearchPage<Notifier>());
+  }
+
+  final _controller = TextEditingController();
+  final _focusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Search'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TextField(
-              onSubmitted: (query) {
-                Provider.of<MovieSearchNotifier>(context, listen: false)
-                    .fetchMovieSearch(query);
-              },
-              decoration: InputDecoration(
-                hintText: 'Search title',
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(),
-              ),
-              textInputAction: TextInputAction.search,
+    return ChangeNotifierProvider<Notifier>(
+      create: (_) => locator(),
+      builder: (context, _) => Scaffold(
+        appBar: AppBar(
+          title: TextField(
+            key: kTexFieldKey,
+            focusNode: _focusNode,
+            controller: _controller,
+            textAlignVertical: TextAlignVertical.center,
+            maxLines: 1,
+            onSubmitted: (query) {
+              context.read<Notifier>().search(query);
+            },
+            decoration: InputDecoration(
+              hintText: 'Search',
+              isDense: true,
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(),
             ),
-            SizedBox(height: 16),
-            Text(
-              'Search Result',
-              style: kHeading6,
-            ),
-            Consumer<MovieSearchNotifier>(
-              builder: (context, data, child) {
-                if (data.state == RequestState.Loading) {
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else if (data.state == RequestState.Loaded) {
-                  final result = data.searchResult;
-                  return Expanded(
-                    child: ListView.builder(
-                      padding: const EdgeInsets.all(8),
-                      itemBuilder: (context, index) {
-                        final movie = data.searchResult[index];
-                        return MovieCard(movie);
-                      },
-                      itemCount: result.length,
-                    ),
-                  );
-                } else {
-                  return Expanded(
-                    child: Container(),
-                  );
-                }
+            textInputAction: TextInputAction.search,
+          ),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {
+                context.read<Notifier>().search(_controller.text);
               },
             ),
           ],
+        ),
+        body: Consumer<Notifier>(
+          builder: (context, data, _) {
+            if (data.state == RequestState.Loading) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (data.state == RequestState.Loaded) {
+              final result = data.results;
+              return ListView.separated(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: NavigationToolbar.kMiddleSpacing,
+                  vertical: 24.0,
+                ),
+                itemBuilder: (context, index) {
+                  return EntertainmentCard.detailed(result[index]);
+                },
+                itemCount: result.length,
+                separatorBuilder: (BuildContext context, int index) {
+                  return SizedBox(height: 8.0);
+                },
+              );
+            } else {
+              return GestureDetector(
+                onTap: () {
+                  FocusScope.of(context).requestFocus(_focusNode);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.screen_search_desktop_outlined,
+                          size: 40,
+                        ),
+                        SizedBox(height: 12.0),
+                        Text('Start typing'),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            }
+          },
         ),
       ),
     );

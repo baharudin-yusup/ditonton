@@ -26,7 +26,7 @@ void main() {
         when(mockMovieRpository.getPopularMovies())
             .thenAnswer((_) async => Right(tMovies));
         // act
-        final result = await usecase.execute();
+        final result = await usecase();
         // assert
         expect(result, Right(tMovies));
       });

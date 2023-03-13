@@ -1,36 +1,75 @@
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/movie.dart';
-import 'package:ditonton/domain/usecases/get_watchlist_movies.dart';
+import 'package:ditonton/domain/entities/tv_show.dart';
+import 'package:ditonton/domain/entities/watchlist.dart';
+import 'package:ditonton/domain/usecases/get_movie_watchlist.dart';
+import 'package:ditonton/domain/usecases/get_tv_show_watchlist.dart';
 import 'package:flutter/foundation.dart';
 
-class WatchlistMovieNotifier extends ChangeNotifier {
-  var _watchlistMovies = <Movie>[];
-  List<Movie> get watchlistMovies => _watchlistMovies;
+import '../../domain/entities/movie.dart';
 
-  var _watchlistState = RequestState.Empty;
-  RequestState get watchlistState => _watchlistState;
+class WatchlistNotifier extends ChangeNotifier {
+  var _moviesWatchlist = <Movie>[];
+  var _tvShowsWatchlist = <TvShow>[];
 
-  String _message = '';
-  String get message => _message;
+  List<Watchlist> get moviesWatchlist =>
+      _moviesWatchlist.map((movie) => movie.toWatchlist()).toList();
 
-  WatchlistMovieNotifier({required this.getWatchlistMovies});
+  List<Watchlist> get tvShowsWatchlist =>
+      _tvShowsWatchlist.map((movie) => movie.toWatchlist()).toList();
 
-  final GetWatchlistMovies getWatchlistMovies;
+  var _moviesWatchlistState = RequestState.Empty;
+  var _tvShowsWatchlistState = RequestState.Empty;
+
+  RequestState get moviesWatchlistState => _moviesWatchlistState;
+  RequestState get tvShowsWatchlistState => _tvShowsWatchlistState;
+
+  String _moviesMessage = '';
+  String _tvShowsMessage = '';
+
+  String get moviesMessage => _moviesMessage;
+  String get tvShowsMessage => _tvShowsMessage;
+
+  WatchlistNotifier({
+    required this.getWatchlistMovies,
+    required this.getTvShowWatchlist,
+  });
+
+  final GetMovieWatchlist getWatchlistMovies;
+  final GetTvShowWatchlist getTvShowWatchlist;
 
   Future<void> fetchWatchlistMovies() async {
-    _watchlistState = RequestState.Loading;
+    _moviesWatchlistState = RequestState.Loading;
     notifyListeners();
 
-    final result = await getWatchlistMovies.execute();
+    final result = await getWatchlistMovies();
     result.fold(
       (failure) {
-        _watchlistState = RequestState.Error;
-        _message = failure.message;
+        _moviesWatchlistState = RequestState.Error;
+        _moviesMessage = failure.message;
         notifyListeners();
       },
-      (moviesData) {
-        _watchlistState = RequestState.Loaded;
-        _watchlistMovies = moviesData;
+      (datum) {
+        _moviesWatchlistState = RequestState.Loaded;
+        _moviesWatchlist = datum;
+        notifyListeners();
+      },
+    );
+  }
+
+  Future<void> fetchTvShowsWatchlist() async {
+    _tvShowsWatchlistState = RequestState.Loading;
+    notifyListeners();
+
+    final result = await getTvShowWatchlist();
+    result.fold(
+      (failure) {
+        _tvShowsWatchlistState = RequestState.Error;
+        _tvShowsMessage = failure.message;
+        notifyListeners();
+      },
+      (datum) {
+        _tvShowsWatchlistState = RequestState.Loaded;
+        _tvShowsWatchlist = datum;
         notifyListeners();
       },
     );

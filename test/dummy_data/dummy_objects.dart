@@ -1,7 +1,16 @@
+import 'dart:convert';
+
 import 'package:ditonton/data/models/movie_table.dart';
+import 'package:ditonton/data/models/tv_show_detail_model.dart';
+import 'package:ditonton/data/models/tv_show_model.dart';
+import 'package:ditonton/data/models/tv_show_table.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
+import 'package:ditonton/domain/entities/tv_show.dart';
+import 'package:ditonton/domain/entities/watchlist.dart';
+
+import '../json_reader.dart';
 
 final testMovie = Movie(
   adult: false,
@@ -37,7 +46,9 @@ final testMovieDetail = MovieDetail(
   voteCount: 1,
 );
 
-final testWatchlistMovie = Movie.watchlist(
+final testTvShowDetail = testTvShowDetailModel.toEntity();
+
+final testWatchlistMovie = Movie(
   id: 1,
   title: 'title',
   posterPath: 'posterPath',
@@ -57,3 +68,35 @@ final testMovieMap = {
   'posterPath': 'posterPath',
   'title': 'title',
 };
+
+final testTvShowTableMap = {
+  'id': 1,
+  'overview': 'overview',
+  'posterPath': 'posterPath',
+  'title': 'title',
+  'type': 'tv_show',
+};
+
+final testTvShow = TvShow(
+  posterPath: 'posterPath',
+  id: 1,
+  overview: 'overview',
+  name: 'name',
+);
+
+final testWatchlist = <Watchlist>[
+  ...testMovieList.toWatchlist(),
+];
+
+final testTvShowTable = TvShowTable(
+  id: 1,
+  title: 'title',
+  posterPath: 'posterPath',
+  overview: 'overview',
+);
+
+final testTvShowModel =
+    TvShowModel.fromJson(jsonDecode(readJson('dummy_data/tv_show.json')));
+
+final testTvShowDetailModel = TvShowDetailModel.fromJson(
+    jsonDecode(readJson('dummy_data/tv_show_detail.json')));

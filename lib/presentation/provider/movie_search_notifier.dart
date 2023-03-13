@@ -1,27 +1,36 @@
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/movie.dart';
+import 'package:ditonton/domain/entities/watchlist.dart';
 import 'package:ditonton/domain/usecases/search_movies.dart';
-import 'package:flutter/foundation.dart';
+import 'package:ditonton/presentation/provider/search_entertainment_notifier.dart';
 
-class MovieSearchNotifier extends ChangeNotifier {
+class SearchMovieNotifier extends SearchEntertainmentNotifier {
   final SearchMovies searchMovies;
 
-  MovieSearchNotifier({required this.searchMovies});
+  SearchMovieNotifier({required this.searchMovies});
 
   RequestState _state = RequestState.Empty;
+
+  @override
   RequestState get state => _state;
 
   List<Movie> _searchResult = [];
-  List<Movie> get searchResult => _searchResult;
+
+  @override
+  List<Watchlist> get results =>
+      _searchResult.map((e) => e.toWatchlist()).toList();
 
   String _message = '';
+
+  @override
   String get message => _message;
 
-  Future<void> fetchMovieSearch(String query) async {
+  @override
+  Future<void> search(String query) async {
     _state = RequestState.Loading;
     notifyListeners();
 
-    final result = await searchMovies.execute(query);
+    final result = await searchMovies(query);
     result.fold(
       (failure) {
         _message = failure.message;

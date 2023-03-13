@@ -1,5 +1,5 @@
 import 'package:ditonton/common/exception.dart';
-import 'package:ditonton/data/datasources/db/database_helper.dart';
+import 'package:ditonton/data/datasources/database_helper.dart';
 import 'package:ditonton/data/models/movie_table.dart';
 
 abstract class MovieLocalDataSource {
@@ -36,7 +36,7 @@ class MovieLocalDataSourceImpl implements MovieLocalDataSource {
 
   @override
   Future<MovieTable?> getMovieById(int id) async {
-    final result = await databaseHelper.getMovieById(id);
+    final result = await databaseHelper.getWatchlistById(id, 'movie');
     if (result != null) {
       return MovieTable.fromMap(result);
     } else {
@@ -46,7 +46,7 @@ class MovieLocalDataSourceImpl implements MovieLocalDataSource {
 
   @override
   Future<List<MovieTable>> getWatchlistMovies() async {
-    final result = await databaseHelper.getWatchlistMovies();
+    final result = await databaseHelper.getWatchlist('movie');
     return result.map((data) => MovieTable.fromMap(data)).toList();
   }
 }

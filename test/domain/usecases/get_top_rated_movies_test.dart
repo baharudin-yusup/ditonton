@@ -22,7 +22,7 @@ void main() {
     when(mockMovieRepository.getTopRatedMovies())
         .thenAnswer((_) async => Right(tMovies));
     // act
-    final result = await usecase.execute();
+    final result = await usecase();
     // assert
     expect(result, Right(tMovies));
   });

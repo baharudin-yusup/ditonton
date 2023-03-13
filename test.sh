@@ -87,5 +87,6 @@ esac
 # Fail the build if there was an error
 if [ "$error" = true ] ;
 then
+    # shellcheck disable=SC2242
     exit -1
 fi
