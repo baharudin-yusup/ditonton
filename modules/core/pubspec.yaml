@@ -19,6 +19,7 @@ dependencies:
   json_annotation: ^4.8.0
   sqflite: ^2.2.5
   http: ^0.13.5
+  dynamic_color: ^1.6.2
 
 dev_dependencies:
   flutter_test:
