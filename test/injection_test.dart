@@ -1,7 +1,7 @@
 import 'package:ditonton/injection.dart' as di;
-import 'package:ditonton/presentation/provider/movie_list_notifier.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
+import 'package:movie/presentation/blocs/movie_list_notifier.dart';
 
 void main() {
   setUp(() {

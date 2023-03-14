@@ -1,8 +1,7 @@
+import 'package:core/common/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:ditonton/domain/entities/tv_show.dart';
 import 'package:ditonton/domain/entities/tv_show_detail.dart';
-
-import '../../common/failure.dart';
 
 abstract class TvShowRepository {
   Future<Either<Failure, List<TvShow>>> getNowAiringTvShows([int page = 1]);

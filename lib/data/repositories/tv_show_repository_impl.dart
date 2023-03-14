@@ -1,8 +1,8 @@
 import 'dart:io';
 
+import 'package:core/common/exception.dart';
+import 'package:core/common/failure.dart';
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/common/exception.dart';
-import 'package:ditonton/common/failure.dart';
 import 'package:ditonton/data/datasources/tv_show_local_data_source.dart';
 import 'package:ditonton/data/datasources/tv_show_remote_data_source.dart';
 import 'package:ditonton/data/models/tv_show_detail_model.dart';

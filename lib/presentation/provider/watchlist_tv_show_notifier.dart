@@ -1,5 +1,5 @@
+import 'package:core/domain/entities/watchlist.dart';
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/watchlist.dart';
 import 'package:ditonton/domain/usecases/get_tv_show_watchlist.dart';
 import 'package:flutter/foundation.dart';
 
@@ -35,7 +35,7 @@ class WatchlistMovieNotifier extends ChangeNotifier {
       },
       (datum) {
         _watchlistState = RequestState.Loaded;
-        _watchlist = datum.map((data) => data.toWatchlist()).toList();
+        _watchlist = datum;
         notifyListeners();
       },
     );

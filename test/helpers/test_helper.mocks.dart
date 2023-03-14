@@ -9,30 +9,33 @@ import 'dart:typed_data' as _i26;
 
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:ditonton/common/failure.dart' as _i8;
-import 'package:ditonton/data/datasources/database_helper.dart' as _i22;
-import 'package:ditonton/data/datasources/movie_local_data_source.dart' as _i13;
-import 'package:ditonton/data/datasources/movie_remote_data_source.dart'
-    as _i11;
 import 'package:ditonton/data/datasources/tv_show_local_data_source.dart'
     as _i20;
 import 'package:ditonton/data/datasources/tv_show_remote_data_source.dart'
     as _i18;
-import 'package:ditonton/data/models/movie_detail_model.dart' as _i3;
 import 'package:ditonton/data/models/movie_model.dart' as _i12;
-import 'package:ditonton/data/models/movie_table.dart' as _i14;
 import 'package:ditonton/data/models/tv_show_detail_model.dart' as _i4;
 import 'package:ditonton/data/models/tv_show_model.dart' as _i19;
 import 'package:ditonton/data/models/tv_show_table.dart' as _i21;
-import 'package:ditonton/data/models/watchlist_table.dart' as _i24;
-import 'package:ditonton/domain/entities/movie.dart' as _i9;
 import 'package:ditonton/domain/entities/movie_detail.dart' as _i10;
 import 'package:ditonton/domain/entities/tv_show.dart' as _i16;
 import 'package:ditonton/domain/entities/tv_show_detail.dart' as _i17;
-import 'package:ditonton/domain/repositories/movie_repository.dart' as _i6;
 import 'package:ditonton/domain/repositories/tv_repository.dart' as _i15;
 import 'package:http/http.dart' as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:sqflite/sqflite.dart' as _i23;
+
+import '../../modules/core/lib/data/helpers/database_helper.dart' as _i22;
+import '../../modules/core/lib/data/models/watchlist_table.dart' as _i24;
+import '../../modules/movie/lib/data/models/movie_detail_model.dart' as _i3;
+import '../../modules/movie/lib/data/models/movie_table.dart' as _i14;
+import '../../modules/movie/lib/data/sources/movie_local_data_source.dart'
+    as _i13;
+import '../../modules/movie/lib/data/sources/movie_remote_data_source.dart'
+    as _i11;
+import '../../modules/movie/lib/domain/entities/movie.dart' as _i9;
+import '../../modules/movie/lib/domain/repositories/movie_repository.dart'
+    as _i6;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

@@ -1,6 +1,6 @@
+import 'package:core/domain/entities/watchlist.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/tv_show.dart';
-import 'package:ditonton/domain/entities/watchlist.dart';
 import 'package:ditonton/domain/usecases/get_tv_show_recommendations.dart';
 import 'package:ditonton/presentation/provider/entertainment_list_notifier.dart';
 
@@ -16,7 +16,7 @@ class TvShowRecommendationsNotifier extends EntertainmentListNotifier {
   final GetTvShowRecommendations _getTvShowRecommendations;
 
   @override
-  List<Watchlist> get list => _datum.map((data) => data.toWatchlist()).toList();
+  List<Watchlist> get list => _datum;
 
   @override
   String get message => _message;

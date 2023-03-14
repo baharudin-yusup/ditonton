@@ -1,8 +1,8 @@
 import 'package:ditonton/presentation/pages/about_page.dart';
-import 'package:ditonton/presentation/pages/movie_dashboard_page.dart';
 import 'package:ditonton/presentation/pages/tv_show_dashboard_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_page.dart';
 import 'package:flutter/material.dart';
+import 'package:movie/movie.dart';
 
 class HomePage extends StatefulWidget {
   static const routeName = '/';

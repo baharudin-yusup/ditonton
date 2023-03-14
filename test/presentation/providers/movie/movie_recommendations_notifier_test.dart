@@ -2,11 +2,11 @@ import 'package:dartz/dartz.dart';
 import 'package:ditonton/common/failure.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/usecases/get_movie_recommendations.dart';
-import 'package:ditonton/presentation/provider/movie_list/movie_recomendations_notifier.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
+import '../../../../modules/core/lib/presentation/blocs/movie_recomendations_notifier.dart';
 import '../../../dummy_data/dummy_objects.dart';
 import 'movie_recommendations_notifier_test.mocks.dart';
 

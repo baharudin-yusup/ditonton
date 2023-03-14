@@ -1,6 +1,6 @@
+import 'package:core/domain/entities/watchlist.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/tv_show_detail.dart';
-import 'package:ditonton/domain/entities/watchlist.dart';
 import 'package:ditonton/domain/usecases/get_tv_show_detail.dart';
 import 'package:ditonton/domain/usecases/get_tv_show_recommendations.dart';
 import 'package:ditonton/domain/usecases/get_tv_show_watchlist_status.dart';
@@ -36,9 +36,7 @@ class TvShowDetailNotifier extends ChangeNotifier {
 
   List<TvShow> _recommendations = [];
 
-  List<Watchlist> get recommendations => _recommendations
-      .map((recommendation) => recommendation.toWatchlist())
-      .toList();
+  List<Watchlist> get recommendations => _recommendations;
 
   RequestState _recommendationState = RequestState.Empty;
 

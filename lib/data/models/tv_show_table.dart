@@ -1,4 +1,4 @@
-import 'package:ditonton/data/models/watchlist_table.dart';
+import 'package:core/data/models/watchlist_table.dart';
 import 'package:ditonton/domain/entities/tv_show.dart';
 import 'package:ditonton/domain/entities/tv_show_detail.dart';
 

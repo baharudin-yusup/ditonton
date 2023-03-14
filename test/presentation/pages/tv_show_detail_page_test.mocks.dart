@@ -8,10 +8,11 @@ import 'dart:ui' as _i7;
 
 import 'package:ditonton/common/state_enum.dart' as _i4;
 import 'package:ditonton/domain/entities/tv_show_detail.dart' as _i2;
-import 'package:ditonton/domain/entities/watchlist.dart' as _i5;
 import 'package:ditonton/presentation/provider/tv_show_detail_notifier.dart'
     as _i3;
 import 'package:mockito/mockito.dart' as _i1;
+
+import '../../../modules/core/lib/domain/entities/watchlist.dart' as _i5;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

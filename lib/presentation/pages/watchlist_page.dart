@@ -1,10 +1,10 @@
+import 'package:core/presentation/widgets/entertainment_card/entertainment_card.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/common/utils.dart';
 import 'package:ditonton/presentation/provider/watchlist_movie_notifier.dart';
 import 'package:flutter/material.dart';
+import 'package:movie/movie.dart';
 import 'package:provider/provider.dart';
-
-import '../widgets/base/entertainment_card/entertainment_card.dart';
 
 class WatchlistPage extends StatefulWidget {
   static const ROUTE_NAME = '/watchlist';
@@ -65,37 +65,7 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
   }
 
   Widget _showMoviesWatchlist() {
-    return Consumer<WatchlistNotifier>(
-      builder: (context, data, child) {
-        final state = data.moviesWatchlistState;
-        final datum = data.moviesWatchlist;
-        final message = data.moviesMessage;
-        if (state == RequestState.Loading) {
-          return Center(
-            child: CircularProgressIndicator(),
-          );
-        } else if (state == RequestState.Loaded) {
-          return ListView.separated(
-            padding: const EdgeInsets.symmetric(
-              horizontal: NavigationToolbar.kMiddleSpacing,
-              vertical: 24.0,
-            ),
-            itemBuilder: (context, index) {
-              return EntertainmentCard.detailed(datum[index]);
-            },
-            separatorBuilder: (BuildContext context, int index) {
-              return SizedBox(height: 8.0);
-            },
-            itemCount: datum.length,
-          );
-        } else {
-          return Center(
-            key: Key('error_message'),
-            child: Text(message),
-          );
-        }
-      },
-    );
+    return MovieWatchlistPage();
   }
 
   Widget _showTvShowsWatchlist() {

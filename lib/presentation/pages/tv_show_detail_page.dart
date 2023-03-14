@@ -1,18 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:core/domain/entities/genre.dart';
+import 'package:core/domain/entities/season.dart';
+import 'package:core/presentation/widgets/entertainment_horizontal_list.dart';
+import 'package:core/presentation/widgets/home_subheading.dart';
+import 'package:core/presentation/widgets/watchlist_button.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/genre.dart';
-import 'package:ditonton/domain/entities/season.dart';
 import 'package:ditonton/presentation/provider/tv_show_detail_notifier.dart';
-import 'package:ditonton/presentation/provider/tv_show_list/tv_show_recommendations_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
-
-import '../widgets/base/home_subheading.dart';
-import '../widgets/base/watchlist_button.dart';
-import '../widgets/entertainment_horizontal_list.dart';
-import 'entertainment_list_page.dart';
 
 class TvShowDetailPage extends StatelessWidget {
   static const routeName = '/tv-show-detail';
@@ -286,16 +283,17 @@ class TvShowDetailPage extends StatelessWidget {
             builder: (context) => HomeSubheading(
               title: 'Recommendations',
               onSeeMorePressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) =>
-                        EntertainmentListPage<TvShowRecommendationsNotifier>(
-                      title: 'Recommendations',
-                      id: provider.detail.id,
-                    ),
-                  ),
-                );
+                // TODO: Implement this
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (_) =>
+                //         EntertainmentListPage<TvShowRecommendationsNotifier>(
+                //       title: 'Recommendations',
+                //       id: provider.detail.id,
+                //     ),
+                //   ),
+                // );
               },
             ),
           ),
@@ -303,7 +301,7 @@ class TvShowDetailPage extends StatelessWidget {
             switch (state) {
               case RequestState.Loading:
               case RequestState.Loaded:
-                return EntertainmentHorizontalList(datum, state);
+                return EntertainmentHorizontalList(datum);
               default:
                 return Text('Failed');
             }

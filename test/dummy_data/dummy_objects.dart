@@ -1,15 +1,15 @@
 import 'dart:convert';
 
-import 'package:ditonton/data/models/movie_table.dart';
 import 'package:ditonton/data/models/tv_show_detail_model.dart';
 import 'package:ditonton/data/models/tv_show_model.dart';
 import 'package:ditonton/data/models/tv_show_table.dart';
-import 'package:ditonton/domain/entities/genre.dart';
-import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
 import 'package:ditonton/domain/entities/tv_show.dart';
-import 'package:ditonton/domain/entities/watchlist.dart';
 
+import '../../modules/core/lib/domain/entities/genre.dart';
+import '../../modules/core/lib/domain/entities/watchlist.dart';
+import '../../modules/movie/lib/data/models/movie_table.dart';
+import '../../modules/movie/lib/domain/entities/movie.dart';
 import '../json_reader.dart';
 
 final testMovie = Movie(

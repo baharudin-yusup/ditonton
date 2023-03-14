@@ -1,6 +1,5 @@
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/watchlist.dart';
 import 'package:ditonton/presentation/pages/tv_show_detail_page.dart';
 import 'package:ditonton/presentation/provider/tv_show_detail_notifier.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +8,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 
+import '../../../modules/core/lib/domain/entities/watchlist.dart';
 import '../../dummy_data/dummy_objects.dart';
 import 'tv_show_detail_page_test.mocks.dart';
 

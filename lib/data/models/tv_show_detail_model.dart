@@ -1,4 +1,4 @@
-import 'package:ditonton/data/models/genre_model.dart';
+import 'package:core/data/models/genre_model.dart';
 import 'package:ditonton/domain/entities/tv_show_detail.dart';
 import 'package:equatable/equatable.dart';
 
@@ -257,7 +257,6 @@ extension ModelToEntity on TvShowDetailModel {
       posterPath: posterPath,
       status: status,
       tagline: tagline,
-      type: type,
       voteAverage: voteAverage,
       voteCount: voteCount,
       latestSeason: seasons.isNotEmpty ? seasons.last.toEntity() : null,

@@ -1,16 +1,9 @@
+import 'package:core/presentation/widgets/entertainment_horizontal_list.dart';
+import 'package:core/presentation/widgets/home_subheading.dart';
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/presentation/pages/entertainment_list_page.dart';
-import 'package:ditonton/presentation/pages/search_page.dart';
-import 'package:ditonton/presentation/provider/tv_show_list/now_airing_tv_shows_notifier.dart';
-import 'package:ditonton/presentation/provider/tv_show_list/popular_tv_shows_notifier.dart';
-import 'package:ditonton/presentation/provider/tv_show_list/search_tv_show_notifier.dart';
 import 'package:ditonton/presentation/provider/tv_show_list_notifier.dart';
-import 'package:ditonton/presentation/widgets/base/home_subheading.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../provider/tv_show_list/top_rated_tv_shows_notifier.dart';
-import '../widgets/entertainment_horizontal_list.dart';
 
 class TvShowDashboardPage extends StatelessWidget {
   const TvShowDashboardPage({Key? key}) : super(key: key);
@@ -23,7 +16,8 @@ class TvShowDashboardPage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(context, SearchPage.route<SearchTvShowNotifier>());
+              // TODO: Implement this
+              // Navigator.push(context, SearchPage.route<SearchTvShowNotifier>());
             },
             icon: Icon(Icons.search),
           )
@@ -50,14 +44,15 @@ class TvShowDashboardPage extends StatelessWidget {
           builder: (context) => HomeSubheading(
                 title: 'Now Airing',
                 onSeeMorePressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) =>
-                          EntertainmentListPage<NowAiringTvShowsNotifier>(
-                              title: 'Now Airing TV Shows'),
-                    ),
-                  );
+                  // TODO: Implement this
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (_) =>
+                  //         EntertainmentListPage<NowAiringTvShowsNotifier>(
+                  //             title: 'Now Airing TV Shows'),
+                  //   ),
+                  // );
                 },
               )),
       Consumer<TvShowListNotifier>(builder: (context, data, child) {
@@ -66,7 +61,9 @@ class TvShowDashboardPage extends StatelessWidget {
         switch (state) {
           case RequestState.Loading:
           case RequestState.Loaded:
-            return EntertainmentHorizontalList(datum, state);
+            // TODO: Implement this
+
+            return EntertainmentHorizontalList(datum);
           default:
             return Text('Failed');
         }
@@ -80,14 +77,15 @@ class TvShowDashboardPage extends StatelessWidget {
           builder: (context) => HomeSubheading(
                 title: 'Popular',
                 onSeeMorePressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) =>
-                          EntertainmentListPage<PopularTvShowsNotifier>(
-                              title: 'Popular TV Shows'),
-                    ),
-                  );
+                  // TODO: Implement this
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (_) =>
+                  //         EntertainmentListPage<PopularTvShowsNotifier>(
+                  //             title: 'Popular TV Shows'),
+                  //   ),
+                  // );
                 },
               )),
       Consumer<TvShowListNotifier>(builder: (context, data, child) {
@@ -96,7 +94,7 @@ class TvShowDashboardPage extends StatelessWidget {
         switch (state) {
           case RequestState.Loading:
           case RequestState.Loaded:
-            return EntertainmentHorizontalList(datum, state);
+            return EntertainmentHorizontalList(datum);
           default:
             return Text('Failed');
         }
@@ -110,14 +108,15 @@ class TvShowDashboardPage extends StatelessWidget {
           builder: (context) => HomeSubheading(
                 title: 'Top Rated',
                 onSeeMorePressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) =>
-                          EntertainmentListPage<TopRatedTvShowsNotifier>(
-                              title: 'Top Rated TV Shows'),
-                    ),
-                  );
+                  // TODO: Implement this
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (_) =>
+                  //         EntertainmentListPage<TopRatedTvShowsNotifier>(
+                  //             title: 'Top Rated TV Shows'),
+                  //   ),
+                  // );
                 },
               )),
       Consumer<TvShowListNotifier>(builder: (context, data, child) {
@@ -126,7 +125,7 @@ class TvShowDashboardPage extends StatelessWidget {
         switch (state) {
           case RequestState.Loading:
           case RequestState.Loaded:
-            return EntertainmentHorizontalList(datum, state);
+            return EntertainmentHorizontalList(datum);
           default:
             return Text('Failed');
         }

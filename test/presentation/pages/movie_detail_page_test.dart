@@ -1,14 +1,14 @@
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/movie.dart';
-import 'package:ditonton/presentation/pages/movie_detail_page.dart';
-import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:movie/presentation/blocs/movie_detail_notifier.dart';
 import 'package:provider/provider.dart';
 
+import '../../../modules/movie/lib/domain/entities/movie.dart';
+import '../../../modules/movie/lib/presentation/pages/movie_detail_page.dart';
 import '../../dummy_data/dummy_objects.dart';
 import 'movie_detail_page_test.mocks.dart';
 

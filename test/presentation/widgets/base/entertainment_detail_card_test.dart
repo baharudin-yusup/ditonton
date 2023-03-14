@@ -1,8 +1,8 @@
-import 'package:ditonton/domain/entities/watchlist.dart';
 import 'package:ditonton/presentation/widgets/base/entertainment_card/entertainment_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../../../../modules/core/lib/domain/entities/watchlist.dart';
 import '../../../dummy_data/dummy_objects.dart';
 
 void main() {

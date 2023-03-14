@@ -33,11 +33,16 @@ dependencies:
   equatable: ^2.0.2
   google_fonts: ^4.0.3
   flutter_rating_bar: ^4.0.0
-  cached_network_image: ^3.0.0
   get_it: ^7.1.3
   sqflite: ^2.0.0+3
   path_provider: ^2.0.2
   dynamic_color: ^1.6.2
+
+  core:
+    path: modules/core
+  movie:
+    path: modules/movie
+  flutter_bloc: ^8.1.2
 
 dev_dependencies:
   mockito: ^5.0.8

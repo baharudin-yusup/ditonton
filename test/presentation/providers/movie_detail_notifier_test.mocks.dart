@@ -7,9 +7,7 @@ import 'dart:async' as _i5;
 
 import 'package:dartz/dartz.dart' as _i3;
 import 'package:ditonton/common/failure.dart' as _i6;
-import 'package:ditonton/domain/entities/movie.dart' as _i9;
 import 'package:ditonton/domain/entities/movie_detail.dart' as _i7;
-import 'package:ditonton/domain/repositories/movie_repository.dart' as _i2;
 import 'package:ditonton/domain/usecases/get_movie_detail.dart' as _i4;
 import 'package:ditonton/domain/usecases/get_movie_recommendations.dart' as _i8;
 import 'package:ditonton/domain/usecases/get_movie_watchlist_status.dart'
@@ -17,6 +15,10 @@ import 'package:ditonton/domain/usecases/get_movie_watchlist_status.dart'
 import 'package:ditonton/domain/usecases/remove_movie_watchlist.dart' as _i12;
 import 'package:ditonton/domain/usecases/save_movie_watchlist.dart' as _i11;
 import 'package:mockito/mockito.dart' as _i1;
+
+import '../../../modules/movie/lib/domain/entities/movie.dart' as _i9;
+import '../../../modules/movie/lib/domain/repositories/movie_repository.dart'
+    as _i2;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

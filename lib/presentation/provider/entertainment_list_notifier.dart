@@ -1,7 +1,7 @@
+import 'package:core/domain/entities/watchlist.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../common/state_enum.dart';
-import '../../domain/entities/watchlist.dart';
 
 abstract class EntertainmentListNotifier extends ChangeNotifier {
   bool _isDisposed = false;

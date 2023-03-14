@@ -1,7 +1,7 @@
+import 'package:core/presentation/widgets/entertainment_horizontal_list.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/presentation/widgets/base/entertainment_card/entertainment_card.dart';
-import 'package:ditonton/presentation/widgets/entertainment_horizontal_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

@@ -1,6 +1,6 @@
+import 'package:core/domain/entities/watchlist.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/tv_show.dart';
-import 'package:ditonton/domain/entities/watchlist.dart';
 import 'package:ditonton/domain/usecases/get_now_airing_tv_shows.dart';
 import 'package:ditonton/domain/usecases/get_popular_tv_shows.dart';
 import 'package:ditonton/domain/usecases/get_top_rated_tv_shows.dart';
@@ -17,18 +17,15 @@ class TvShowListNotifier extends ChangeNotifier {
 
   String _message = '';
 
-  List<Watchlist> get nowPlaying =>
-      _nowAiring.map((data) => data.toWatchlist()).toList();
+  List<Watchlist> get nowPlaying => _nowAiring;
 
   RequestState get nowPlayingState => _nowPlayingState;
 
-  List<Watchlist> get popular =>
-      _popular.map((data) => data.toWatchlist()).toList();
+  List<Watchlist> get popular => _popular;
 
   RequestState get popularState => _popularMoviesState;
 
-  List<Watchlist> get topRated =>
-      _topRated.map((data) => data.toWatchlist()).toList();
+  List<Watchlist> get topRated => _topRated;
 
   RequestState get topRatedState => _topRatedMoviesState;
 

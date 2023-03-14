@@ -1,46 +1,31 @@
-import 'package:ditonton/domain/entities/watchlist.dart';
-import 'package:equatable/equatable.dart';
+import 'package:core/core.dart';
 
-class TvShow extends Equatable {
+class TvShow extends Watchlist {
   TvShow({
-    required this.posterPath,
+    required super.id,
+    required super.overview,
+    required super.posterPath,
+    required super.name,
     this.popularity,
-    required this.id,
     this.backdropPath,
     this.voteAverage,
-    required this.overview,
     this.firstAirDate,
     this.originCountry,
     this.genreIds,
     this.originalLanguage,
     this.voteCount,
-    required this.name,
     this.originalName,
-  });
+  }) : super(type: WatchlistType.tvShow);
 
-  final String posterPath;
   final double? popularity;
-  final int id;
   final String? backdropPath;
   final double? voteAverage;
-  final String overview;
   final DateTime? firstAirDate;
   final List<String>? originCountry;
   final List<int>? genreIds;
   final String? originalLanguage;
   final int? voteCount;
-  final String name;
   final String? originalName;
-
-  Watchlist toWatchlist() {
-    return Watchlist(
-      id: id,
-      overview: overview,
-      posterPath: posterPath,
-      name: name,
-      type: WatchlistType.tvShow,
-    );
-  }
 
   @override
   List<Object?> get props => [

@@ -1,13 +1,13 @@
 import 'package:dartz/dartz.dart';
 import 'package:ditonton/common/failure.dart';
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/movie.dart';
-import 'package:ditonton/domain/usecases/get_popular_movies.dart';
-import 'package:ditonton/presentation/provider/movie_list/popular_movies_notifier.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
+import '../../../modules/core/lib/presentation/blocs/popular_movies_notifier.dart';
+import '../../../modules/movie/lib/domain/entities/movie.dart';
+import '../../../modules/movie/lib/domain/usecases/get_popular_movies.dart';
 import 'popular_movies_notifier_test.mocks.dart';
 
 @GenerateMocks([GetPopularMovies])
