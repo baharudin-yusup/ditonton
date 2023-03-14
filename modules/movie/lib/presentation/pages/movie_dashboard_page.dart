@@ -38,7 +38,7 @@ class MovieDashboardPage extends StatelessWidget {
   }
 
   Widget showNowPlayingMovies() {
-    return BlocBuilder<NowPlayingMoviesBloc, NowPlatingMoviesState>(
+    return BlocBuilder<NowPlayingMoviesBloc, NowPlayingMoviesState>(
         builder: (context, state) {
       return Column(
         children: [

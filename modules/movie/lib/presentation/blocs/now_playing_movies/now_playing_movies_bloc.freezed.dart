@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'now_plating_movies_bloc.dart';
+part of 'now_playing_movies_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$NowPlatingMoviesEvent {
+mixin _$NowPlayingMoviesEvent {
   int get page => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -51,22 +51,22 @@ mixin _$NowPlatingMoviesEvent {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $NowPlatingMoviesEventCopyWith<NowPlatingMoviesEvent> get copyWith =>
+  $NowPlatingMoviesEventCopyWith<NowPlayingMoviesEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $NowPlatingMoviesEventCopyWith<$Res> {
-  factory $NowPlatingMoviesEventCopyWith(NowPlatingMoviesEvent value,
-          $Res Function(NowPlatingMoviesEvent) then) =
-      _$NowPlatingMoviesEventCopyWithImpl<$Res, NowPlatingMoviesEvent>;
+  factory $NowPlatingMoviesEventCopyWith(NowPlayingMoviesEvent value,
+          $Res Function(NowPlayingMoviesEvent) then) =
+      _$NowPlatingMoviesEventCopyWithImpl<$Res, NowPlayingMoviesEvent>;
   @useResult
   $Res call({int page});
 }
 
 /// @nodoc
 class _$NowPlatingMoviesEventCopyWithImpl<$Res,
-        $Val extends NowPlatingMoviesEvent>
+        $Val extends NowPlayingMoviesEvent>
     implements $NowPlatingMoviesEventCopyWith<$Res> {
   _$NowPlatingMoviesEventCopyWithImpl(this._value, this._then);
 
@@ -210,7 +210,7 @@ class _$_FetchDataStarted implements _FetchDataStarted {
   }
 }
 
-abstract class _FetchDataStarted implements NowPlatingMoviesEvent {
+abstract class _FetchDataStarted implements NowPlayingMoviesEvent {
   const factory _FetchDataStarted({final int page}) = _$_FetchDataStarted;
 
   @override
@@ -222,7 +222,7 @@ abstract class _FetchDataStarted implements NowPlatingMoviesEvent {
 }
 
 /// @nodoc
-mixin _$NowPlatingMoviesState {
+mixin _$NowPlayingMoviesState {
   int get page => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -277,22 +277,22 @@ mixin _$NowPlatingMoviesState {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $NowPlatingMoviesStateCopyWith<NowPlatingMoviesState> get copyWith =>
+  $NowPlatingMoviesStateCopyWith<NowPlayingMoviesState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $NowPlatingMoviesStateCopyWith<$Res> {
-  factory $NowPlatingMoviesStateCopyWith(NowPlatingMoviesState value,
-          $Res Function(NowPlatingMoviesState) then) =
-      _$NowPlatingMoviesStateCopyWithImpl<$Res, NowPlatingMoviesState>;
+  factory $NowPlatingMoviesStateCopyWith(NowPlayingMoviesState value,
+          $Res Function(NowPlayingMoviesState) then) =
+      _$NowPlatingMoviesStateCopyWithImpl<$Res, NowPlayingMoviesState>;
   @useResult
   $Res call({int page});
 }
 
 /// @nodoc
 class _$NowPlatingMoviesStateCopyWithImpl<$Res,
-        $Val extends NowPlatingMoviesState>
+        $Val extends NowPlayingMoviesState>
     implements $NowPlatingMoviesStateCopyWith<$Res> {
   _$NowPlatingMoviesStateCopyWithImpl(this._value, this._then);
 
@@ -454,7 +454,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements NowPlatingMoviesState {
+abstract class _Initial implements NowPlayingMoviesState {
   const factory _Initial([final int page]) = _$_Initial;
 
   @override
@@ -606,7 +606,7 @@ class _$_FetchDataInProgress implements _FetchDataInProgress {
   }
 }
 
-abstract class _FetchDataInProgress implements NowPlatingMoviesState {
+abstract class _FetchDataInProgress implements NowPlayingMoviesState {
   const factory _FetchDataInProgress({final int page}) = _$_FetchDataInProgress;
 
   @override
@@ -773,7 +773,7 @@ class _$_FetchDataSuccess implements _FetchDataSuccess {
   }
 }
 
-abstract class _FetchDataSuccess implements NowPlatingMoviesState {
+abstract class _FetchDataSuccess implements NowPlayingMoviesState {
   const factory _FetchDataSuccess(final List<Watchlist> movies,
       {final int page}) = _$_FetchDataSuccess;
 
@@ -934,7 +934,7 @@ class _$_FetchDataFailure implements _FetchDataFailure {
   }
 }
 
-abstract class _FetchDataFailure implements NowPlatingMoviesState {
+abstract class _FetchDataFailure implements NowPlayingMoviesState {
   const factory _FetchDataFailure(final String message, {final int page}) =
       _$_FetchDataFailure;
 

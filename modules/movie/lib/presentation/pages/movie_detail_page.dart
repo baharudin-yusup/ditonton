@@ -42,8 +42,7 @@ class MovieDetailPage extends StatelessWidget {
     );
   }
 
-  Widget _showContent(MovieDetail movieDetail) {
-    final data = movieDetail;
+  Widget _showContent(MovieDetail data) {
     return Stack(
       alignment: Alignment.topCenter,
       children: [
@@ -70,7 +69,7 @@ class MovieDetailPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              _showTitle(data.title),
+                              _showTitle(data.name),
                               const SizedBox(width: 6.0),
                               _showWatchlistButton(context, data),
                             ],
@@ -133,8 +132,6 @@ class MovieDetailPage extends StatelessWidget {
   }
 
   Widget _showWatchlistButton(BuildContext context, MovieDetail movie) {
-    final bloc = context.read<MovieWatchlistStatusBloc>()
-      ..add(MovieWatchlistStatusEvent.fetchDataStarted(movie.id));
     return Padding(
       padding: const EdgeInsets.symmetric(
           horizontal: NavigationToolbar.kMiddleSpacing),
@@ -158,7 +155,8 @@ class MovieDetailPage extends StatelessWidget {
           );
           return WatchlistButton(
             isAddedToWatchlist,
-            onButtonPressed: () => bloc
+            onButtonPressed: () => context
+                .read<MovieWatchlistStatusBloc>()
                 .add(MovieWatchlistStatusEvent.toggleWatchlistStarted(movie)),
           );
         },

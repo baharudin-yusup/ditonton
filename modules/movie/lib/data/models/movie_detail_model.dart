@@ -97,7 +97,7 @@ extension MovieDetailModelToEntity on MovieDetailModel {
         posterPath: posterPath,
         releaseDate: releaseDate,
         runtime: runtime,
-        title: title,
+        name: title,
         voteAverage: voteAverage,
         voteCount: voteCount);
   }

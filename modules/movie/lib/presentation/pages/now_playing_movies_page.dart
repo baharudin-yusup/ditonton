@@ -11,7 +11,7 @@ class NowPlayingMoviesPage extends EntertainmentListPage {
 
   @override
   Widget buildBody() {
-    return BlocBuilder<NowPlayingMoviesBloc, NowPlatingMoviesState>(
+    return BlocBuilder<NowPlayingMoviesBloc, NowPlayingMoviesState>(
       builder: (context, state) {
         return state.map(
           initial: (_) => showInitialState(),

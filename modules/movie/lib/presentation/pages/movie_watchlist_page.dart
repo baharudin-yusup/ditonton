@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../movie.dart';
-import '../blocs/movie_watchlist/movie_watchlist_bloc.dart';
 
 class MovieWatchlistPage extends RawListPage {
   const MovieWatchlistPage({super.key});
@@ -13,11 +12,12 @@ class MovieWatchlistPage extends RawListPage {
   Widget buildBody() {
     return BlocBuilder<MovieWatchlistBloc, MovieWatchlistState>(
       builder: (context, state) {
-        return state.map(
-          initial: (_) => showInitialState(),
-          fetchDataInProgress: (_) => showLoading(),
-          fetchDataSuccess: (data) => showContents(data.movies),
-          fetchDataFailure: (data) => showErrorMessage(data.message),
+        return state.when(
+          initial: () => showInitialState(),
+          fetchDataInProgress: () => showLoading(),
+          fetchDataSuccess: (data) =>
+              data.isNotEmpty ? showContents(data) : showEmptyContent(),
+          fetchDataFailure: (message) => showErrorMessage(message),
         );
       },
     );

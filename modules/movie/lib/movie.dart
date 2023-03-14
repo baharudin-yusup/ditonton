@@ -13,3 +13,4 @@ export 'domain/usecases/usecases.dart';
 /// Presentation layer
 export 'presentation/blocs/blocs.dart';
 export 'presentation/pages/pages.dart';
+export 'presentation/routes/routes.dart';

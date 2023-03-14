@@ -11,17 +11,17 @@ part 'movie_watchlist_status_state.dart';
 class MovieWatchlistStatusBloc
     extends Bloc<MovieWatchlistStatusEvent, MovieWatchlistStatusState> {
   MovieWatchlistStatusBloc(
-      this._getMovieRecommendations,
+      this._getMovieWatchlistStatus,
       this._saveMovieWatchlist,
       this._removeMovieWatchlist,
       this._movieWatchlistBloc)
-      : super(const MovieWatchlistStatusState.initial()) {
+      : super(const _Initial()) {
     on<_FetchDataStarted>(_fetchData);
     on<_ToggleWatchlistStarted>(_toggleWatchlist);
   }
 
   final MovieWatchlistBloc _movieWatchlistBloc;
-  final GetMovieWatchListStatus _getMovieRecommendations;
+  final GetMovieWatchListStatus _getMovieWatchlistStatus;
   final SaveMovieWatchlist _saveMovieWatchlist;
   final RemoveMovieWatchlist _removeMovieWatchlist;
 
@@ -29,7 +29,7 @@ class MovieWatchlistStatusBloc
       _FetchDataStarted event, Emitter<MovieWatchlistStatusState> emit) async {
     emit(const _FetchDataInProgress());
 
-    final isAddedToWatchlist = await _getMovieRecommendations(event.movieId);
+    final isAddedToWatchlist = await _getMovieWatchlistStatus(event.movieId);
     emit(_FetchDataSuccess(isAddedToWatchlist));
   }
 
@@ -37,7 +37,7 @@ class MovieWatchlistStatusBloc
       Emitter<MovieWatchlistStatusState> emit) async {
     emit(const _FetchDataInProgress());
 
-    final isAddedToWatchlist = await _getMovieRecommendations(event.movie.id);
+    final isAddedToWatchlist = await _getMovieWatchlistStatus(event.movie.id);
 
     if (isAddedToWatchlist) {
       final result = await _removeMovieWatchlist(event.movie);
