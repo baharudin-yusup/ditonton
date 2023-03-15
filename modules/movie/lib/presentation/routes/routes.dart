@@ -23,6 +23,7 @@ Widget? getMoviePage(RouteSettings settings) {
                   ..add(MovieWatchlistStatusEvent.fetchDataStarted(id))),
           ],
           child: MovieDetailPage(
+            key: const Key(MovieDetailPage.routeName),
             id: id,
           ));
     case MovieRecommendationsPage.routeName:
@@ -30,30 +31,41 @@ Widget? getMoviePage(RouteSettings settings) {
       return BlocProvider<MovieRecommendationsBloc>(
         create: (_) => locator()
           ..add(MovieRecommendationsEvent.fetchDataStarted(movieId: movieId)),
-        child: MovieRecommendationsPage(movieId),
+        child: MovieRecommendationsPage(
+          movieId,
+          key: const Key(MovieRecommendationsPage.routeName),
+        ),
       );
     case NowPlayingMoviesPage.routeName:
       return BlocProvider<NowPlayingMoviesBloc>(
         create: (_) =>
             locator()..add(const NowPlayingMoviesEvent.fetchDataStarted()),
-        child: const NowPlayingMoviesPage(),
+        child: const NowPlayingMoviesPage(
+          key: Key(NowPlayingMoviesPage.routeName),
+        ),
       );
     case PopularMoviesPage.routeName:
       return BlocProvider<PopularMoviesBloc>(
         create: (_) =>
             locator()..add(const PopularMoviesEvent.fetchDataStarted()),
-        child: const PopularMoviesPage(),
+        child: const PopularMoviesPage(
+          key: Key(PopularMoviesPage.routeName),
+        ),
       );
     case SearchMoviesPage.routeName:
       return BlocProvider<SearchMoviesBloc>(
         create: (_) => locator(),
-        child: SearchMoviesPage(),
+        child: SearchMoviesPage(
+          key: const Key(SearchMoviesPage.routeName),
+        ),
       );
     case TopRatedMoviesPage.routeName:
       return BlocProvider<TopRatedMoviesBloc>(
         create: (_) =>
             locator()..add(const TopRatedMoviesEvent.fetchDataStarted()),
-        child: const TopRatedMoviesPage(),
+        child: const TopRatedMoviesPage(
+          key: Key(TopRatedMoviesPage.routeName),
+        ),
       );
     default:
       return null;

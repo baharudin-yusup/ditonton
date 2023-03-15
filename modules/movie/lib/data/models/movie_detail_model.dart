@@ -6,7 +6,7 @@ import '../../domain/entities/movie_detail.dart';
 
 part 'movie_detail_model.g.dart';
 
-@JsonSerializable(fieldRename: FieldRename.snake)
+@JsonSerializable(fieldRename: FieldRename.snake, createToJson: false)
 class MovieDetailModel extends Equatable {
   final bool adult;
   final String? backdropPath;
@@ -56,8 +56,6 @@ class MovieDetailModel extends Equatable {
 
   factory MovieDetailModel.fromJson(Map<String, dynamic> json) =>
       _$MovieDetailModelFromJson(json);
-
-  Map<String, dynamic> toJson() => _$MovieDetailModelToJson(this);
 
   @override
   List<Object?> get props => [

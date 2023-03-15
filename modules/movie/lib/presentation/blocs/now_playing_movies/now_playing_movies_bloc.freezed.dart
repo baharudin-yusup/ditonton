@@ -51,24 +51,24 @@ mixin _$NowPlayingMoviesEvent {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $NowPlatingMoviesEventCopyWith<NowPlayingMoviesEvent> get copyWith =>
+  $NowPlayingMoviesEventCopyWith<NowPlayingMoviesEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $NowPlatingMoviesEventCopyWith<$Res> {
-  factory $NowPlatingMoviesEventCopyWith(NowPlayingMoviesEvent value,
+abstract class $NowPlayingMoviesEventCopyWith<$Res> {
+  factory $NowPlayingMoviesEventCopyWith(NowPlayingMoviesEvent value,
           $Res Function(NowPlayingMoviesEvent) then) =
-      _$NowPlatingMoviesEventCopyWithImpl<$Res, NowPlayingMoviesEvent>;
+      _$NowPlayingMoviesEventCopyWithImpl<$Res, NowPlayingMoviesEvent>;
   @useResult
   $Res call({int page});
 }
 
 /// @nodoc
-class _$NowPlatingMoviesEventCopyWithImpl<$Res,
+class _$NowPlayingMoviesEventCopyWithImpl<$Res,
         $Val extends NowPlayingMoviesEvent>
-    implements $NowPlatingMoviesEventCopyWith<$Res> {
-  _$NowPlatingMoviesEventCopyWithImpl(this._value, this._then);
+    implements $NowPlayingMoviesEventCopyWith<$Res> {
+  _$NowPlayingMoviesEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -91,7 +91,7 @@ class _$NowPlatingMoviesEventCopyWithImpl<$Res,
 
 /// @nodoc
 abstract class _$$_FetchDataStartedCopyWith<$Res>
-    implements $NowPlatingMoviesEventCopyWith<$Res> {
+    implements $NowPlayingMoviesEventCopyWith<$Res> {
   factory _$$_FetchDataStartedCopyWith(
           _$_FetchDataStarted value, $Res Function(_$_FetchDataStarted) then) =
       __$$_FetchDataStartedCopyWithImpl<$Res>;
@@ -102,7 +102,7 @@ abstract class _$$_FetchDataStartedCopyWith<$Res>
 
 /// @nodoc
 class __$$_FetchDataStartedCopyWithImpl<$Res>
-    extends _$NowPlatingMoviesEventCopyWithImpl<$Res, _$_FetchDataStarted>
+    extends _$NowPlayingMoviesEventCopyWithImpl<$Res, _$_FetchDataStarted>
     implements _$$_FetchDataStartedCopyWith<$Res> {
   __$$_FetchDataStartedCopyWithImpl(
       _$_FetchDataStarted _value, $Res Function(_$_FetchDataStarted) _then)
@@ -133,7 +133,7 @@ class _$_FetchDataStarted implements _FetchDataStarted {
 
   @override
   String toString() {
-    return 'NowPlatingMoviesEvent.fetchDataStarted(page: $page)';
+    return 'NowPlayingMoviesEvent.fetchDataStarted(page: $page)';
   }
 
   @override
@@ -277,24 +277,24 @@ mixin _$NowPlayingMoviesState {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $NowPlatingMoviesStateCopyWith<NowPlayingMoviesState> get copyWith =>
+  $NowPlayingMoviesStateCopyWith<NowPlayingMoviesState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $NowPlatingMoviesStateCopyWith<$Res> {
-  factory $NowPlatingMoviesStateCopyWith(NowPlayingMoviesState value,
+abstract class $NowPlayingMoviesStateCopyWith<$Res> {
+  factory $NowPlayingMoviesStateCopyWith(NowPlayingMoviesState value,
           $Res Function(NowPlayingMoviesState) then) =
-      _$NowPlatingMoviesStateCopyWithImpl<$Res, NowPlayingMoviesState>;
+      _$NowPlayingMoviesStateCopyWithImpl<$Res, NowPlayingMoviesState>;
   @useResult
   $Res call({int page});
 }
 
 /// @nodoc
-class _$NowPlatingMoviesStateCopyWithImpl<$Res,
+class _$NowPlayingMoviesStateCopyWithImpl<$Res,
         $Val extends NowPlayingMoviesState>
-    implements $NowPlatingMoviesStateCopyWith<$Res> {
-  _$NowPlatingMoviesStateCopyWithImpl(this._value, this._then);
+    implements $NowPlayingMoviesStateCopyWith<$Res> {
+  _$NowPlayingMoviesStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -317,7 +317,7 @@ class _$NowPlatingMoviesStateCopyWithImpl<$Res,
 
 /// @nodoc
 abstract class _$$_InitialCopyWith<$Res>
-    implements $NowPlatingMoviesStateCopyWith<$Res> {
+    implements $NowPlayingMoviesStateCopyWith<$Res> {
   factory _$$_InitialCopyWith(
           _$_Initial value, $Res Function(_$_Initial) then) =
       __$$_InitialCopyWithImpl<$Res>;
@@ -328,7 +328,7 @@ abstract class _$$_InitialCopyWith<$Res>
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$NowPlatingMoviesStateCopyWithImpl<$Res, _$_Initial>
+    extends _$NowPlayingMoviesStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
@@ -358,7 +358,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'NowPlatingMoviesState.initial(page: $page)';
+    return 'NowPlayingMoviesState.initial(page: $page)';
   }
 
   @override
@@ -467,7 +467,7 @@ abstract class _Initial implements NowPlayingMoviesState {
 
 /// @nodoc
 abstract class _$$_FetchDataInProgressCopyWith<$Res>
-    implements $NowPlatingMoviesStateCopyWith<$Res> {
+    implements $NowPlayingMoviesStateCopyWith<$Res> {
   factory _$$_FetchDataInProgressCopyWith(_$_FetchDataInProgress value,
           $Res Function(_$_FetchDataInProgress) then) =
       __$$_FetchDataInProgressCopyWithImpl<$Res>;
@@ -478,7 +478,7 @@ abstract class _$$_FetchDataInProgressCopyWith<$Res>
 
 /// @nodoc
 class __$$_FetchDataInProgressCopyWithImpl<$Res>
-    extends _$NowPlatingMoviesStateCopyWithImpl<$Res, _$_FetchDataInProgress>
+    extends _$NowPlayingMoviesStateCopyWithImpl<$Res, _$_FetchDataInProgress>
     implements _$$_FetchDataInProgressCopyWith<$Res> {
   __$$_FetchDataInProgressCopyWithImpl(_$_FetchDataInProgress _value,
       $Res Function(_$_FetchDataInProgress) _then)
@@ -509,7 +509,7 @@ class _$_FetchDataInProgress implements _FetchDataInProgress {
 
   @override
   String toString() {
-    return 'NowPlatingMoviesState.fetchDataInProgress(page: $page)';
+    return 'NowPlayingMoviesState.fetchDataInProgress(page: $page)';
   }
 
   @override
@@ -619,7 +619,7 @@ abstract class _FetchDataInProgress implements NowPlayingMoviesState {
 
 /// @nodoc
 abstract class _$$_FetchDataSuccessCopyWith<$Res>
-    implements $NowPlatingMoviesStateCopyWith<$Res> {
+    implements $NowPlayingMoviesStateCopyWith<$Res> {
   factory _$$_FetchDataSuccessCopyWith(
           _$_FetchDataSuccess value, $Res Function(_$_FetchDataSuccess) then) =
       __$$_FetchDataSuccessCopyWithImpl<$Res>;
@@ -630,7 +630,7 @@ abstract class _$$_FetchDataSuccessCopyWith<$Res>
 
 /// @nodoc
 class __$$_FetchDataSuccessCopyWithImpl<$Res>
-    extends _$NowPlatingMoviesStateCopyWithImpl<$Res, _$_FetchDataSuccess>
+    extends _$NowPlayingMoviesStateCopyWithImpl<$Res, _$_FetchDataSuccess>
     implements _$$_FetchDataSuccessCopyWith<$Res> {
   __$$_FetchDataSuccessCopyWithImpl(
       _$_FetchDataSuccess _value, $Res Function(_$_FetchDataSuccess) _then)
@@ -675,7 +675,7 @@ class _$_FetchDataSuccess implements _FetchDataSuccess {
 
   @override
   String toString() {
-    return 'NowPlatingMoviesState.fetchDataSuccess(movies: $movies, page: $page)';
+    return 'NowPlayingMoviesState.fetchDataSuccess(movies: $movies, page: $page)';
   }
 
   @override
@@ -788,7 +788,7 @@ abstract class _FetchDataSuccess implements NowPlayingMoviesState {
 
 /// @nodoc
 abstract class _$$_FetchDataFailureCopyWith<$Res>
-    implements $NowPlatingMoviesStateCopyWith<$Res> {
+    implements $NowPlayingMoviesStateCopyWith<$Res> {
   factory _$$_FetchDataFailureCopyWith(
           _$_FetchDataFailure value, $Res Function(_$_FetchDataFailure) then) =
       __$$_FetchDataFailureCopyWithImpl<$Res>;
@@ -799,7 +799,7 @@ abstract class _$$_FetchDataFailureCopyWith<$Res>
 
 /// @nodoc
 class __$$_FetchDataFailureCopyWithImpl<$Res>
-    extends _$NowPlatingMoviesStateCopyWithImpl<$Res, _$_FetchDataFailure>
+    extends _$NowPlayingMoviesStateCopyWithImpl<$Res, _$_FetchDataFailure>
     implements _$$_FetchDataFailureCopyWith<$Res> {
   __$$_FetchDataFailureCopyWithImpl(
       _$_FetchDataFailure _value, $Res Function(_$_FetchDataFailure) _then)
@@ -837,7 +837,7 @@ class _$_FetchDataFailure implements _FetchDataFailure {
 
   @override
   String toString() {
-    return 'NowPlatingMoviesState.fetchDataFailure(message: $message, page: $page)';
+    return 'NowPlayingMoviesState.fetchDataFailure(message: $message, page: $page)';
   }
 
   @override

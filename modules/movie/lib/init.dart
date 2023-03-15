@@ -3,8 +3,6 @@ library init;
 import 'package:core/core.dart';
 
 import 'movie.dart';
-import 'presentation/blocs/movie_watchlist_status/movie_watchlist_status_bloc.dart';
-import 'presentation/blocs/search_movies/search_movies_bloc.dart';
 
 void initLocator() {
   /// Blocs
@@ -22,7 +20,7 @@ void initLocator() {
   locator.registerLazySingleton(() => GetMovieDetail(locator()));
   locator.registerLazySingleton(() => GetMovieRecommendations(locator()));
   locator.registerLazySingleton(() => GetMovieWatchlist(locator()));
-  locator.registerLazySingleton(() => GetMovieWatchListStatus(locator()));
+  locator.registerLazySingleton(() => GetMovieWatchlistStatus(locator()));
   locator.registerLazySingleton(() => GetNowPlayingMovies(locator()));
   locator.registerLazySingleton(() => GetPopularMovies(locator()));
   locator.registerLazySingleton(() => GetTopRatedMovies(locator()));

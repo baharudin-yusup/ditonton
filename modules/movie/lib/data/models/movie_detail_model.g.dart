@@ -32,28 +32,3 @@ MovieDetailModel _$MovieDetailModelFromJson(Map<String, dynamic> json) =>
       (json['vote_average'] as num).toDouble(),
       json['vote_count'] as int,
     );
-
-Map<String, dynamic> _$MovieDetailModelToJson(MovieDetailModel instance) =>
-    <String, dynamic>{
-      'adult': instance.adult,
-      'backdrop_path': instance.backdropPath,
-      'budget': instance.budget,
-      'genres': instance.genres,
-      'homepage': instance.homepage,
-      'id': instance.id,
-      'imdb_id': instance.imdbId,
-      'original_language': instance.originalLanguage,
-      'original_title': instance.originalTitle,
-      'overview': instance.overview,
-      'popularity': instance.popularity,
-      'poster_path': instance.posterPath,
-      'release_date': instance.releaseDate,
-      'revenue': instance.revenue,
-      'runtime': instance.runtime,
-      'status': instance.status,
-      'tagline': instance.tagline,
-      'title': instance.title,
-      'video': instance.video,
-      'vote_average': instance.voteAverage,
-      'vote_count': instance.voteCount,
-    };

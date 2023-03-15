@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/entities/movie_detail.dart';
 import '../../../movie.dart';
 
 part 'movie_watchlist_status_bloc.freezed.dart';
@@ -21,7 +20,7 @@ class MovieWatchlistStatusBloc
   }
 
   final MovieWatchlistBloc _movieWatchlistBloc;
-  final GetMovieWatchListStatus _getMovieWatchlistStatus;
+  final GetMovieWatchlistStatus _getMovieWatchlistStatus;
   final SaveMovieWatchlist _saveMovieWatchlist;
   final RemoveMovieWatchlist _removeMovieWatchlist;
 
@@ -42,7 +41,7 @@ class MovieWatchlistStatusBloc
     if (isAddedToWatchlist) {
       final result = await _removeMovieWatchlist(event.movie);
       result.fold(
-        (failure) => _FetchDataFailure(failure.message),
+        (failure) => emit(_FetchDataFailure(failure.message)),
         (message) {
           emit(_FetchDataSuccess(false, message: message));
           _movieWatchlistBloc.add(const MovieWatchlistEvent.fetchDataStarted());
@@ -51,7 +50,7 @@ class MovieWatchlistStatusBloc
     } else {
       final result = await _saveMovieWatchlist(event.movie);
       result.fold(
-        (failure) => _FetchDataFailure(failure.message),
+        (failure) => emit(_FetchDataFailure(failure.message)),
         (message) {
           emit(_FetchDataSuccess(true, message: message));
           _movieWatchlistBloc.add(const MovieWatchlistEvent.fetchDataStarted());
