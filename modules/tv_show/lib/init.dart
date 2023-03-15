@@ -24,7 +24,7 @@ void initLocator() {
   locator.registerLazySingleton(() => GetTvShowDetail(locator()));
   locator.registerLazySingleton(() => GetTvShowRecommendations(locator()));
   locator.registerLazySingleton(() => GetTvShowWatchlist(locator()));
-  locator.registerLazySingleton(() => GetTvShowWatchListStatus(locator()));
+  locator.registerLazySingleton(() => GetTvShowWatchlistStatus(locator()));
   locator.registerLazySingleton(() => GetNowAiringTvShows(locator()));
   locator.registerLazySingleton(() => GetPopularTvShows(locator()));
   locator.registerLazySingleton(() => GetTopRatedTvShows(locator()));

@@ -1,4 +1,6 @@
-class LanguageModel {
+import 'package:equatable/equatable.dart';
+
+class LanguageModel extends Equatable {
   LanguageModel({
     required this.englishName,
     required this.iso6391,
@@ -31,4 +33,7 @@ class LanguageModel {
         "iso_639_1": iso6391,
         "name": name,
       };
+
+  @override
+  List<Object?> get props => [name];
 }

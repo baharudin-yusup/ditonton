@@ -123,6 +123,7 @@ class TvShowDashboardPage extends StatelessWidget {
   Widget showLoading() {
     return LayoutBuilder(builder: (context, constraints) {
       return Padding(
+        key: kShimmerKey,
         padding: const EdgeInsets.all(16.0),
         child: Container(
           height: 25,
@@ -137,6 +138,7 @@ class TvShowDashboardPage extends StatelessWidget {
   Widget showFailureMessage(String message) {
     return LayoutBuilder(builder: (context, constraints) {
       return Padding(
+        key: kErrorTextKey,
         padding: const EdgeInsets.all(16.0),
         child: Container(
           width: constraints.maxWidth,

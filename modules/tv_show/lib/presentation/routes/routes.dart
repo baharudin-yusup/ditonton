@@ -21,38 +21,51 @@ Widget? getTvShowPage(RouteSettings settings) {
               create: (_) => locator()
                 ..add(TvShowWatchlistStatusEvent.fetchDataStarted(id))),
         ],
-        child: TvShowDetailPage(id),
+        child: TvShowDetailPage(
+          id,
+          key: const Key(TvShowDetailPage.routeName),
+        ),
       );
     case TvShowRecommendationsPage.routeName:
       final id = settings.arguments as int;
       return BlocProvider<TvShowRecommendationsBloc>(
         create: (_) =>
             locator()..add(TvShowRecommendationsEvent.fetchDataStarted(id)),
-        child: TvShowRecommendationsPage(id),
+        child: TvShowRecommendationsPage(
+          id,
+          key: const Key(TvShowRecommendationsPage.routeName),
+        ),
       );
-      break;
     case NowAiringTvShowsPage.routeName:
       return BlocProvider<NowAiringTvShowsBloc>(
         create: (_) =>
             locator()..add(const NowAiringTvShowsEvent.fetchDataStarted()),
-        child: const NowAiringTvShowsPage(),
+        child: const NowAiringTvShowsPage(
+          key: Key(NowAiringTvShowsPage.routeName),
+        ),
       );
     case PopularTvShowsPage.routeName:
       return BlocProvider<PopularTvShowsBloc>(
         create: (_) =>
             locator()..add(const PopularTvShowsEvent.fetchDataStarted()),
-        child: const PopularTvShowsPage(),
+        child: const PopularTvShowsPage(
+          key: Key(PopularTvShowsPage.routeName),
+        ),
       );
     case SearchTvShowsPage.routeName:
       return BlocProvider<SearchTvShowsBloc>(
         create: (_) => locator(),
-        child: SearchTvShowsPage(),
+        child: SearchTvShowsPage(
+          key: const Key(SearchTvShowsPage.routeName),
+        ),
       );
     case TopRatedTvShowsPage.routeName:
       return BlocProvider<TopRatedTvShowsBloc>(
         create: (_) =>
             locator()..add(const TopRatedTvShowsEvent.fetchDataStarted()),
-        child: const TopRatedTvShowsPage(),
+        child: const TopRatedTvShowsPage(
+          key: Key(TopRatedTvShowsPage.routeName),
+        ),
       );
     default:
       return null;

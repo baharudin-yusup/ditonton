@@ -1,4 +1,6 @@
-class CreatorModel {
+import 'package:equatable/equatable.dart';
+
+class CreatorModel extends Equatable {
   CreatorModel({
     required this.id,
     required this.creditId,
@@ -43,4 +45,7 @@ class CreatorModel {
         "gender": gender,
         "profile_path": profilePath,
       };
+
+  @override
+  List<Object?> get props => [id];
 }

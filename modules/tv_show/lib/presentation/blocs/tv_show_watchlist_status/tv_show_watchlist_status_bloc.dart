@@ -24,7 +24,7 @@ class TvShowWatchlistStatusBloc
   }
 
   final TvShowWatchlistBloc _tvShowWatchlistBloc;
-  final GetTvShowWatchListStatus _getTvShowWatchlistStatus;
+  final GetTvShowWatchlistStatus _getTvShowWatchlistStatus;
   final SaveTvShowWatchlist _saveTvShowWatchlist;
   final RemoveTvShowWatchlist _removeTvShowWatchlist;
 
@@ -45,7 +45,7 @@ class TvShowWatchlistStatusBloc
     if (isAddedToWatchlist) {
       final result = await _removeTvShowWatchlist(event.tvShow);
       result.fold(
-        (failure) => _FetchDataFailure(failure.message),
+        (failure) => emit(_FetchDataFailure(failure.message)),
         (message) {
           emit(_FetchDataSuccess(false, message: message));
           _tvShowWatchlistBloc
@@ -55,7 +55,7 @@ class TvShowWatchlistStatusBloc
     } else {
       final result = await _saveTvShowWatchlist(event.tvShow);
       result.fold(
-        (failure) => _FetchDataFailure(failure.message),
+        (failure) => emit(_FetchDataFailure(failure.message)),
         (message) {
           emit(_FetchDataSuccess(true, message: message));
           _tvShowWatchlistBloc

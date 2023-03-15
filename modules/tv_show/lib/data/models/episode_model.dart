@@ -1,4 +1,6 @@
-class EpisodeModel {
+import 'package:equatable/equatable.dart';
+
+class EpisodeModel extends Equatable {
   EpisodeModel({
     required this.airDate,
     required this.episodeNumber,
@@ -74,4 +76,7 @@ class EpisodeModel {
         "vote_average": voteAverage,
         "vote_count": voteCount,
       };
+
+  @override
+  List<Object?> get props => [id];
 }

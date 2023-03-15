@@ -30,18 +30,21 @@ class TvShowDetailPage extends StatelessWidget {
 
   Widget _showLoading() {
     return const Center(
+      key: kShimmerKey,
       child: CircularProgressIndicator.adaptive(),
     );
   }
 
   Widget _showErrorMessage(String message) {
     return Center(
+      key: kErrorTextKey,
       child: Text(message),
     );
   }
 
   Widget _showContent(TvShowDetail data) {
     return Stack(
+      key: kMainContentsKey,
       alignment: Alignment.topCenter,
       children: [
         _showThumbnail(data.posterPath),
@@ -348,14 +351,17 @@ class TvShowDetailPage extends StatelessWidget {
         child: Builder(
           builder: (context) => Padding(
             padding: const EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              backgroundColor: Theme.of(context).colorScheme.surface,
-              foregroundColor: Theme.of(context).colorScheme.onSurface,
-              child: IconButton(
-                icon: Icon(Icons.adaptive.arrow_back),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
+            child: Material(
+              color: Colors.transparent,
+              child: CircleAvatar(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+                foregroundColor: Theme.of(context).colorScheme.onSurface,
+                child: IconButton(
+                  icon: Icon(Icons.adaptive.arrow_back),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
               ),
             ),
           ),

@@ -1,5 +1,7 @@
 import 'package:core/core.dart';
 
+import 'season.dart';
+
 class TvShowDetail extends Watchlist {
   const TvShowDetail({
     required super.id,
