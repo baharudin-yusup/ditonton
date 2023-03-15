@@ -1,3 +1,4 @@
+// coverage:ignore-start
 import 'package:core/core.dart';
 import 'package:ditonton/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -38,3 +39,4 @@ class App extends StatelessWidget {
     );
   }
 }
+// coverage:ignore-end

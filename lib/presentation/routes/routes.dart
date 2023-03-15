@@ -32,7 +32,9 @@ Widget getGeneralPage(RouteSettings settings) {
               create: (_) =>
                   locator()..add(TopRatedTvShowsEvent.fetchDataStarted())),
         ],
-        child: HomePage(),
+        child: HomePage(
+          key: Key(HomePage.routeName),
+        ),
       );
     default:
       return UnknownPage();

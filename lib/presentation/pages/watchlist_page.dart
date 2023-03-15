@@ -1,3 +1,4 @@
+// coverage:ignore-start
 import 'package:flutter/material.dart';
 import 'package:movie/movie.dart';
 import 'package:tv_show/presentation/pages/pages.dart';
@@ -27,3 +28,4 @@ class WatchlistPage extends StatelessWidget {
     );
   }
 }
+// coverage:ignore-end

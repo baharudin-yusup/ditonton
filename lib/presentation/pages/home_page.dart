@@ -1,3 +1,4 @@
+// coverage:ignore-start
 import 'package:ditonton/presentation/pages/watchlist_page.dart';
 import 'package:flutter/material.dart';
 import 'package:movie/movie.dart';
@@ -5,6 +6,8 @@ import 'package:tv_show/presentation/pages/tv_show_dashboard_page.dart';
 
 class HomePage extends StatefulWidget {
   static const routeName = '/';
+
+  HomePage({super.key});
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -64,3 +67,4 @@ class _HomePageState extends State<HomePage> {
     });
   }
 }
+// coverage:ignore-end

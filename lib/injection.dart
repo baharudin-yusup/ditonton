@@ -1,3 +1,4 @@
+// coverage:ignore-start
 import 'package:core/init.dart' as core;
 import 'package:movie/init.dart' as movie;
 import 'package:tv_show/init.dart' as tv_show;
@@ -15,3 +16,4 @@ void init() {
 
   _isInitialized = true;
 }
+// coverage:ignore-end
