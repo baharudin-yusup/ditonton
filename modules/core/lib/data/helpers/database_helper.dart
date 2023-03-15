@@ -2,37 +2,35 @@ import 'dart:async';
 
 import 'package:sqflite/sqflite.dart';
 
+import '../../common/constants.dart';
 import '../models/watchlist_table.dart';
 
-class DatabaseHelper {
-  static DatabaseHelper? _databaseHelper;
+abstract class DatabaseHelper {
+  Future<int> insertWatchlist(WatchlistTable watchlist);
 
-  DatabaseHelper._instance() {
-    _databaseHelper = this;
-  }
+  Future<int> removeWatchlist(WatchlistTable watchlist);
 
-  factory DatabaseHelper() => _databaseHelper ?? DatabaseHelper._instance();
+  Future<Map<String, dynamic>?> getWatchlistById(int id, String type);
 
-  static Database? _database;
+  Future<List<Map<String, dynamic>>> getWatchlist(String type);
 
-  Future<Database?> get database async {
-    _database ??= await _initDb();
-    return _database;
-  }
+  Future<void> init([Database? preInitDb]);
+}
 
-  static const String _tblWatchlist = 'watchlist';
+class DatabaseHelperImpl implements DatabaseHelper {
+  late final Database _database;
 
-  Future<Database> _initDb() async {
-    final path = await getDatabasesPath();
-    final databasePath = '$path/ditonton.db';
+  DatabaseHelperImpl();
 
-    var db = await openDatabase(databasePath, version: 2, onCreate: _onCreate);
-    return db;
-  }
-
-  void _onCreate(Database db, int version) async {
-    await db.execute('''
-      CREATE TABLE  $_tblWatchlist (
+  @override
+  Future<void> init([Database? preInitDb]) async {
+    if (preInitDb != null) {
+      _database = preInitDb;
+      return;
+    }
+    void onCreate(Database db, int version) async {
+      await db.execute('''
+      CREATE TABLE  $kTableWatchlist (
         id INTEGER PRIMARY KEY,
         title TEXT,
         overview TEXT,
@@ -40,26 +38,36 @@ class DatabaseHelper {
         type TEXT
       );
     ''');
+    }
+
+    final path = await getDatabasesPath();
+    final databasePath = '$path/ditonton.db';
+
+    var db = await openDatabase(databasePath, version: 2, onCreate: onCreate);
+    _database = db;
   }
 
+  @override
   Future<int> insertWatchlist(WatchlistTable watchlist) async {
-    final db = await database;
-    return await db!.insert(_tblWatchlist, watchlist.toJson());
+    final db = _database;
+    return await db.insert(kTableWatchlist, watchlist.toJson());
   }
 
+  @override
   Future<int> removeWatchlist(WatchlistTable watchlist) async {
-    final db = await database;
-    return await db!.delete(
-      _tblWatchlist,
+    final db = _database;
+    return await db.delete(
+      kTableWatchlist,
       where: 'id = ?',
       whereArgs: [watchlist.id],
     );
   }
 
+  @override
   Future<Map<String, dynamic>?> getWatchlistById(int id, String type) async {
-    final db = await database;
-    final results = await db!.query(
-      _tblWatchlist,
+    final db = _database;
+    final results = await db.query(
+      kTableWatchlist,
       where: 'id = ? AND type = ?',
       whereArgs: [
         id,
@@ -74,10 +82,11 @@ class DatabaseHelper {
     }
   }
 
+  @override
   Future<List<Map<String, dynamic>>> getWatchlist(String type) async {
-    final db = await database;
-    final List<Map<String, dynamic>> results = await db!.query(
-      _tblWatchlist,
+    final db = _database;
+    final List<Map<String, dynamic>> results = await db.query(
+      kTableWatchlist,
       where: 'type = ?',
       whereArgs: [type],
     );

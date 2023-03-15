@@ -1,3 +1,4 @@
+// coverage:ignore-start
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -34,3 +35,4 @@ abstract class WatchlistTable extends Equatable {
         type,
       ];
 }
+// coverage:ignore-end

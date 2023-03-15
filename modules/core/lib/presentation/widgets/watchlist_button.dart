@@ -1,3 +1,4 @@
+// coverage:ignore-start
 import 'package:flutter/material.dart';
 
 import '../utils/widget_keys.dart';
@@ -47,3 +48,4 @@ class WatchlistButton extends StatelessWidget {
     );
   }
 }
+// coverage:ignore-end

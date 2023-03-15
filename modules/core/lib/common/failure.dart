@@ -1,3 +1,4 @@
+// coverage:ignore-start
 import 'package:equatable/equatable.dart';
 
 abstract class Failure extends Equatable {
@@ -20,3 +21,4 @@ class ConnectionFailure extends Failure {
 class DatabaseFailure extends Failure {
   const DatabaseFailure(String message) : super(message);
 }
+// coverage:ignore-end

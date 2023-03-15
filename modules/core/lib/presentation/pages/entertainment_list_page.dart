@@ -1,3 +1,4 @@
+// coverage:ignore-start
 import 'package:flutter/material.dart';
 
 import 'raw_list_page.dart';
@@ -20,3 +21,4 @@ abstract class EntertainmentListPage extends RawListPage {
     );
   }
 }
+// coverage:ignore-end

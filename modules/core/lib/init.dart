@@ -7,7 +7,7 @@ final locator = GetIt.instance;
 
 void initLocator() {
   /// Helpers
-  locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
+  locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelperImpl());
 
   /// Externals
   locator.registerLazySingleton(() => http.Client());

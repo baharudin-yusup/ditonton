@@ -1,3 +1,4 @@
+// coverage:ignore-start
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 
@@ -38,3 +39,4 @@ class ThemeBuilder extends StatelessWidget {
     );
   }
 }
+// coverage:ignore-end

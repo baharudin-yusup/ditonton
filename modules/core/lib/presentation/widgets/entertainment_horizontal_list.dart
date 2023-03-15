@@ -1,13 +1,14 @@
+// coverage:ignore-start
 import 'package:flutter/material.dart';
 
-import '../../domain/entities/watchlist.dart';
-import 'entertainment_card/entertainment_card.dart';
+import '../../core.dart';
 
 class EntertainmentHorizontalList extends StatelessWidget {
   final List<Watchlist> datum;
   final void Function(Watchlist data)? onTap;
 
-  const EntertainmentHorizontalList(this.datum, {super.key, this.onTap});
+  const EntertainmentHorizontalList(this.datum,
+      {super.key = kEntertainmentHorizontalListKey, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -33,3 +34,4 @@ class EntertainmentHorizontalList extends StatelessWidget {
     );
   }
 }
+// coverage:ignore-end

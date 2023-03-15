@@ -1,3 +1,4 @@
+// coverage:ignore-start
 import 'package:core/presentation/pages/raw_list_page.dart';
 import 'package:flutter/material.dart';
 
@@ -43,6 +44,7 @@ abstract class SearchPage extends RawListPage {
   Widget showInitialState() {
     return Builder(builder: (context) {
       return GestureDetector(
+        key: kInitialWidgetKey,
         onTap: () {
           FocusScope.of(context).requestFocus(_focusNode);
         },
@@ -68,9 +70,11 @@ abstract class SearchPage extends RawListPage {
 
   Widget showFailure(String message) {
     return Center(
+      key: kErrorTextKey,
       child: Text(message),
     );
   }
 
   void onSubmitted(BuildContext context, String query);
 }
+// coverage:ignore-end

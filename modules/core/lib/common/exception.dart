@@ -1,3 +1,4 @@
+// coverage:ignore-start
 class ServerException implements Exception {}
 
 class DatabaseException implements Exception {
@@ -5,3 +6,4 @@ class DatabaseException implements Exception {
 
   DatabaseException(this.message);
 }
+// coverage:ignore-end

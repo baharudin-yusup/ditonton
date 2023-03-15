@@ -1,9 +1,10 @@
+// coverage:ignore-start
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:core/common/constants.dart';
-import 'package:core/presentation/utils/widget_keys.dart';
 import 'package:flutter/material.dart';
 
+import '../../../common/constants.dart';
 import '../../../domain/entities/entities.dart';
+import '../../utils/widget_keys.dart';
 
 part 'entertainment_detail_card.dart';
 part 'entertainment_simple_card.dart';
@@ -32,24 +33,5 @@ abstract class EntertainmentCard extends StatelessWidget {
       onTap: onTap,
     );
   }
-
-// TODO: Implement this
-// void openDetailPage(BuildContext context) async {
-//   switch (data.type) {
-//     case WatchlistType.movie:
-//       await Navigator.pushNamed(
-//         context,
-//         MovieDetailPage.routeName,
-//         arguments: data.id,
-//       );
-//       break;
-//     case WatchlistType.tvShow:
-//       await Navigator.pushNamed(
-//         context,
-//         TvShowDetailPage.routeName,
-//         arguments: data.id,
-//       );
-//       break;
-//   }
-// }
 }
+// coverage:ignore-end

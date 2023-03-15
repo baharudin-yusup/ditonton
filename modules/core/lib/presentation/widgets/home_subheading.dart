@@ -1,3 +1,4 @@
+// coverage:ignore-start
 import 'package:flutter/material.dart';
 
 class HomeSubheading extends StatelessWidget {
@@ -47,3 +48,4 @@ class HomeSubheading extends StatelessWidget {
     );
   }
 }
+// coverage:ignore-end

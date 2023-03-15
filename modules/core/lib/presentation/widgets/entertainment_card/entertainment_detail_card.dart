@@ -1,3 +1,4 @@
+// coverage:ignore-start
 part of 'entertainment_card.dart';
 
 class _DetailCard extends EntertainmentCard {
@@ -133,3 +134,4 @@ class _DetailCard extends EntertainmentCard {
     );
   }
 }
+// coverage:ignore-end

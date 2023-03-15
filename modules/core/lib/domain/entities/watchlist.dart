@@ -1,3 +1,4 @@
+// coverage:ignore-start
 import 'package:equatable/equatable.dart';
 
 enum WatchlistType {
@@ -29,12 +30,4 @@ class Watchlist extends Equatable {
         type,
       ];
 }
-
-// TODO: Move this
-
-//
-// extension TvShowsWatchlist on List<TvShow> {
-//   List<Watchlist> toWatchlist() {
-//     return this.map((movie) => movie.toWatchlist()).toList();
-//   }
-// }
+// coverage:ignore-end

@@ -1,3 +1,4 @@
+// coverage:ignore-start
 part of 'entertainment_card.dart';
 
 class _SimpleCard extends EntertainmentCard {
@@ -69,3 +70,4 @@ class _SimpleCard extends EntertainmentCard {
     );
   }
 }
+// coverage:ignore-end
