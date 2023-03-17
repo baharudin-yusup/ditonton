@@ -4,6 +4,7 @@ import 'package:core/core.dart';
 
 import 'movie.dart';
 
+// coverage:ignore-start
 void initLocator() {
   /// Blocs
   locator.registerFactory(() => MovieRecommendationsBloc(locator()));
@@ -38,3 +39,4 @@ void initLocator() {
   locator.registerLazySingleton<MovieRemoteDataSource>(
       () => MovieRemoteDataSourceImpl(locator()));
 }
+// coverage:ignore-end

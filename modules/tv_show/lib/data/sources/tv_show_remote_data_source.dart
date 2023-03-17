@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:core/common/constants.dart';
 import 'package:core/common/exception.dart';
-import 'package:http/http.dart' as http;
+import 'package:http/io_client.dart';
 
 import '../models/tv_show_detail_model.dart';
 import '../models/tv_show_model.dart';
@@ -23,7 +23,7 @@ abstract class TvShowRemoteDataSource {
 }
 
 class TvShowRemoteDataSourceImpl implements TvShowRemoteDataSource {
-  final http.Client client;
+  final IOClient client;
 
   TvShowRemoteDataSourceImpl(this.client);
 
