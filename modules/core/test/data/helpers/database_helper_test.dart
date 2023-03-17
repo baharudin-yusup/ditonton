@@ -20,7 +20,7 @@ void main() {
     mockDatabase = MockDatabase();
     mockWatchlistTable = MockWatchlistTable();
 
-    databaseHelper = DatabaseHelperImpl()..init(mockDatabase);
+    databaseHelper = DatabaseHelperImpl(mockDatabase);
   });
 
   test('should return a number when insert watchlist success', () async {

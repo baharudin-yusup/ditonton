@@ -1,12 +1,15 @@
-import 'package:core/init.dart' as core;
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:http/http.dart';
+import 'package:http/io_client.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:tv_show/init.dart' as tv_show;
 import 'package:tv_show/presentation/pages/pages.dart';
 import 'package:tv_show/presentation/routes/routes.dart';
 
+import '../../helpers/test_helper.mocks.dart';
 import 'routes_test.mocks.dart';
 
 @GenerateNiceMocks([
@@ -14,8 +17,12 @@ import 'routes_test.mocks.dart';
 ])
 void main() {
   late MockRouteSettings mockRouteSettings;
+  final mockHttpClient = MockHttpClient();
+  final mockDatabaseHelper = MockDatabaseHelper();
 
-  core.initLocator();
+  locator.registerLazySingleton<IOClient>(() => mockHttpClient);
+  locator.registerLazySingleton<DatabaseHelper>(() => mockDatabaseHelper);
+
   tv_show.initLocator();
 
   setUp(() {
@@ -32,6 +39,8 @@ void main() {
     'other',
   ]) {
     testWidgets('handle case route = $route', (tester) async {
+      when(mockHttpClient.get(any))
+          .thenAnswer((_) async => Response('Not Found', 404));
       when(mockRouteSettings.name).thenReturn(route);
       when(mockRouteSettings.arguments).thenReturn(1);
       final widget = find.byKey(Key(route));
