@@ -13,39 +13,12 @@ abstract class DatabaseHelper {
   Future<Map<String, dynamic>?> getWatchlistById(int id, String type);
 
   Future<List<Map<String, dynamic>>> getWatchlist(String type);
-
-  Future<void> init([Database? preInitDb]);
 }
 
 class DatabaseHelperImpl implements DatabaseHelper {
-  late final Database _database;
+  final Database _database;
 
-  DatabaseHelperImpl();
-
-  @override
-  Future<void> init([Database? preInitDb]) async {
-    if (preInitDb != null) {
-      _database = preInitDb;
-      return;
-    }
-    void onCreate(Database db, int version) async {
-      await db.execute('''
-      CREATE TABLE  $kTableWatchlist (
-        id INTEGER PRIMARY KEY,
-        title TEXT,
-        overview TEXT,
-        posterPath TEXT,
-        type TEXT
-      );
-    ''');
-    }
-
-    final path = await getDatabasesPath();
-    final databasePath = '$path/ditonton.db';
-
-    var db = await openDatabase(databasePath, version: 2, onCreate: onCreate);
-    _database = db;
-  }
+  DatabaseHelperImpl(this._database);
 
   @override
   Future<int> insertWatchlist(WatchlistTable watchlist) async {
