@@ -1,4 +1,4 @@
-import 'package:core/init.dart';
+import 'package:core/core.dart';
 import 'package:ditonton/presentation/pages/pages.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
