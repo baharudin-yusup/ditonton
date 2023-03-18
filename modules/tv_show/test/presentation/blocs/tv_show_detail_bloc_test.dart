@@ -1,5 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:core/common/failure.dart';
+import 'package:core/core.dart';
+import 'package:core/init.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
@@ -8,15 +9,17 @@ import 'package:tv_show/domain/usecases/usecases.dart';
 import 'package:tv_show/presentation/blocs/tv_show_detail/tv_show_detail_bloc.dart';
 
 import '../../dummy_data/dummy_objects.dart';
+import '../../helpers/core_init_helper.dart';
 import 'tv_show_detail_bloc_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<GetTvShowDetail>()])
 void main() {
+  mockInitLocator();
   late MockGetTvShowDetail mockGetTvShowDetail;
   late TvShowDetailBloc bloc;
   setUp(() {
     mockGetTvShowDetail = MockGetTvShowDetail();
-    bloc = TvShowDetailBloc(mockGetTvShowDetail);
+    bloc = TvShowDetailBloc(mockGetTvShowDetail, locator());
   });
 
   const tId = 1;

@@ -1,16 +1,11 @@
-import 'package:core/core.dart';
 import 'package:ditonton/presentation/pages/pages.dart';
 import 'package:ditonton/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:http/http.dart';
-import 'package:http/io_client.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:movie/init.dart' as movie;
-import 'package:tv_show/init.dart' as tv_show;
 
-import '../../helpers/test_helper.mocks.dart';
+import '../../helpers/core_init_helper.dart';
 import 'routes_test.mocks.dart';
 
 @GenerateNiceMocks([
@@ -18,14 +13,8 @@ import 'routes_test.mocks.dart';
 ])
 void main() async {
   late MockRouteSettings mockRouteSettings;
-  final mockHttpClient = MockHttpClient();
-  final mockDatabaseHelper = MockDatabaseHelper();
+  mockInitLocator();
 
-  locator.registerLazySingleton<IOClient>(() => mockHttpClient);
-  locator.registerLazySingleton<DatabaseHelper>(() => mockDatabaseHelper);
-
-  movie.initLocator();
-  tv_show.initLocator();
   setUp(() {
     mockRouteSettings = MockRouteSettings();
   });
@@ -35,10 +24,7 @@ void main() async {
     'other',
   ]) {
     testWidgets('handle case route = $route', (tester) async {
-      when(mockHttpClient.get(any))
-          .thenAnswer((_) async => Response('Not Found', 404));
-      when(mockRouteSettings.name).thenReturn(route);
-      when(mockRouteSettings.arguments).thenReturn(1);
+      when(mockIOClient.get(any)).thenThrow(Exception());
       when(mockRouteSettings.name).thenReturn(route);
       when(mockRouteSettings.arguments).thenReturn(1);
       final widget = find.byKey(Key(route));

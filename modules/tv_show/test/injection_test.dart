@@ -1,4 +1,5 @@
 import 'package:core/core.dart';
+import 'package:core/init.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/io_client.dart';
 import 'package:tv_show/domain/repositories/tv_show_repository.dart';

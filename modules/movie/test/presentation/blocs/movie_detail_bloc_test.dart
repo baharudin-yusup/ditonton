@@ -7,15 +7,20 @@ import 'package:mockito/mockito.dart';
 import 'package:movie/movie.dart';
 
 import '../../dummy_data/dummy_objects.dart';
+import '../../helpers/core_init_helper.dart';
+import '../../helpers/core_init_helper.mocks.dart';
 import 'movie_detail_bloc_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<GetMovieDetail>()])
 void main() {
+  mockInitLocator();
   late MockGetMovieDetail mockGetMovieDetail;
+  late MockLogSelectedContent mockLogSelectedContent;
   late MovieDetailBloc bloc;
   setUp(() {
     mockGetMovieDetail = MockGetMovieDetail();
-    bloc = MovieDetailBloc(mockGetMovieDetail);
+    mockLogSelectedContent = MockLogSelectedContent();
+    bloc = MovieDetailBloc(mockGetMovieDetail, mockLogSelectedContent);
   });
 
   const tId = 1;
@@ -33,6 +38,9 @@ void main() {
       build: () {
         when(mockGetMovieDetail(tId))
             .thenAnswer((_) async => const Right(testMovieDetail));
+        when(mockLogSelectedContent(
+                contentType: 'movie', contentId: testMovieDetail.id.toString()))
+            .thenAnswer((_) async => const Right(unit));
         return bloc;
       },
       act: (bloc) {

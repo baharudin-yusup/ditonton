@@ -11,7 +11,7 @@ abstract class Failure extends Equatable {
 }
 
 class ServerFailure extends Failure {
-  const ServerFailure(String message) : super(message);
+  const ServerFailure([String? message]) : super(message ?? 'Unknown error');
 }
 
 class ConnectionFailure extends Failure {
@@ -20,5 +20,9 @@ class ConnectionFailure extends Failure {
 
 class DatabaseFailure extends Failure {
   const DatabaseFailure(String message) : super(message);
+}
+
+class UnknownFailure extends Failure {
+  const UnknownFailure(dynamic exception) : super('$exception');
 }
 // coverage:ignore-end

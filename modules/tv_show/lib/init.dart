@@ -1,6 +1,6 @@
 library init;
 
-import 'package:core/core.dart';
+import 'package:core/init.dart' show locator;
 
 import 'data/repositories/repositories.dart';
 import 'data/sources/sources.dart';
@@ -14,7 +14,7 @@ void initLocator() {
   locator.registerFactory(() => NowAiringTvShowsBloc(locator()));
   locator.registerFactory(() => PopularTvShowsBloc(locator()));
   locator.registerFactory(() => TopRatedTvShowsBloc(locator()));
-  locator.registerFactory(() => TvShowDetailBloc(locator()));
+  locator.registerFactory(() => TvShowDetailBloc(locator(), locator()));
   locator.registerFactory(() =>
       TvShowWatchlistStatusBloc(locator(), locator(), locator(), locator()));
   locator.registerFactory(() => SearchTvShowsBloc(locator()));
