@@ -10,7 +10,7 @@ void main() {
       'tap the search icon button and then input "Resident" in the text field',
       (tester) async {
     /// Init
-    app.main();
+    await app.main();
     await tester.pumpAndSettle();
 
     /// Open search movie page
