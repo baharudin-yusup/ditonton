@@ -28,6 +28,10 @@ class MovieRepositoryImpl implements MovieRepository {
       return const Left(ServerFailure(''));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } catch (exception) {
+      return const Left(ServerFailure());
+    } catch (e) {
+      return Left(UnknownFailure(e));
     }
   }
 
@@ -40,6 +44,8 @@ class MovieRepositoryImpl implements MovieRepository {
       return const Left(ServerFailure(''));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } catch (e) {
+      return Left(UnknownFailure(e));
     }
   }
 
@@ -52,6 +58,8 @@ class MovieRepositoryImpl implements MovieRepository {
       return const Left(ServerFailure(''));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } catch (e) {
+      return Left(UnknownFailure(e));
     }
   }
 
@@ -64,6 +72,8 @@ class MovieRepositoryImpl implements MovieRepository {
       return const Left(ServerFailure(''));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } catch (e) {
+      return Left(UnknownFailure(e));
     }
   }
 
@@ -76,6 +86,8 @@ class MovieRepositoryImpl implements MovieRepository {
       return const Left(ServerFailure(''));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } catch (e) {
+      return Left(UnknownFailure(e));
     }
   }
 
@@ -88,6 +100,8 @@ class MovieRepositoryImpl implements MovieRepository {
       return const Left(ServerFailure(''));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } catch (e) {
+      return Left(UnknownFailure(e));
     }
   }
 
@@ -100,7 +114,7 @@ class MovieRepositoryImpl implements MovieRepository {
     } on DatabaseException catch (e) {
       return Left(DatabaseFailure(e.message));
     } catch (e) {
-      rethrow;
+      return Left(UnknownFailure(e));
     }
   }
 
@@ -112,6 +126,8 @@ class MovieRepositoryImpl implements MovieRepository {
       return Right(result);
     } on DatabaseException catch (e) {
       return Left(DatabaseFailure(e.message));
+    } catch (e) {
+      return Left(UnknownFailure(e));
     }
   }
 

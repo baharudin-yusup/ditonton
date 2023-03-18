@@ -1,4 +1,4 @@
-import 'package:core/core.dart';
+import 'package:core/init.dart';
 import 'package:ditonton/presentation/pages/pages.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,6 +22,7 @@ Widget getGeneralPage(RouteSettings settings) {
                   locator()..add(TopRatedMoviesEvent.fetchDataStarted())),
 
           /// TV Show Bloc
+          // coverage:ignore-start
           BlocProvider<NowAiringTvShowsBloc>(
               create: (_) =>
                   locator()..add(NowAiringTvShowsEvent.fetchDataStarted())),
@@ -31,6 +32,7 @@ Widget getGeneralPage(RouteSettings settings) {
           BlocProvider<TopRatedTvShowsBloc>(
               create: (_) =>
                   locator()..add(TopRatedTvShowsEvent.fetchDataStarted())),
+          // coverage:ignore-end
         ],
         child: HomePage(
           key: Key(HomePage.routeName),

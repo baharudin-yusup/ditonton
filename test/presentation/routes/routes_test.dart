@@ -1,4 +1,3 @@
-import 'package:ditonton/injection.dart';
 import 'package:ditonton/presentation/pages/pages.dart';
 import 'package:ditonton/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
+import '../../helpers/core_init_helper.dart';
 import 'routes_test.mocks.dart';
 
 @GenerateNiceMocks([
@@ -13,7 +13,7 @@ import 'routes_test.mocks.dart';
 ])
 void main() async {
   late MockRouteSettings mockRouteSettings;
-  init();
+  mockInitLocator();
 
   setUp(() {
     mockRouteSettings = MockRouteSettings();
@@ -24,6 +24,7 @@ void main() async {
     'other',
   ]) {
     testWidgets('handle case route = $route', (tester) async {
+      when(mockIOClient.get(any)).thenThrow(Exception());
       when(mockRouteSettings.name).thenReturn(route);
       when(mockRouteSettings.arguments).thenReturn(1);
       final widget = find.byKey(Key(route));

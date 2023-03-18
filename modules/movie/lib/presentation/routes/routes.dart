@@ -1,4 +1,4 @@
-import 'package:core/core.dart';
+import 'package:core/init.dart' show locator;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

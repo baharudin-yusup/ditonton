@@ -1,5 +1,6 @@
 // coverage:ignore-start
 import 'package:core/core.dart';
+import 'package:core/init.dart';
 import 'package:ditonton/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

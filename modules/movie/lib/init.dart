@@ -1,6 +1,6 @@
 library init;
 
-import 'package:core/core.dart';
+import 'package:core/init.dart' show locator;
 
 import 'movie.dart';
 
@@ -11,7 +11,7 @@ void initLocator() {
   locator.registerFactory(() => NowPlayingMoviesBloc(locator()));
   locator.registerFactory(() => PopularMoviesBloc(locator()));
   locator.registerFactory(() => TopRatedMoviesBloc(locator()));
-  locator.registerFactory(() => MovieDetailBloc(locator()));
+  locator.registerFactory(() => MovieDetailBloc(locator(), locator()));
   locator.registerFactory(() =>
       MovieWatchlistStatusBloc(locator(), locator(), locator(), locator()));
   locator.registerFactory(() => SearchMoviesBloc(locator()));
